@@ -10,7 +10,7 @@
     instancesize: t2.micro
     instancename: webserver01
     keypair: ec2-ol-mgt
-    amitouse: ami-b63769a1
+    amitouse: ami-22ce4934 # Amazon Linux
     numberofservers: 1
     subnettolaunchin: subnet-c7b3549c
     
