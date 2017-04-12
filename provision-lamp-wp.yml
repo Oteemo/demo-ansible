@@ -57,6 +57,7 @@
       with_items:
         - MariaDB-server
         - MariaDB-client
+        - MariaDB-devel
         - MySQL-python
         - python-pip
     
