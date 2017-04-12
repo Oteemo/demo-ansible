@@ -137,8 +137,8 @@
     - name: Delete *.gz in webroot
       file: path=/var/www/html/latest.tar.gz state=absent
 
-    - name: Write wp-config.php to webroot
-      template: src=files/wp-config.php.j2 dest=/var/www/wp-config.php owner=root group=root mode=0644
+ #   - name: Write wp-config.php to webroot
+ #     template: src=files/wp-config.php.j2 dest=/var/www/wp-config.php owner=root group=root mode=0644
 
     - name: Download and install wp-cli
       get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/usr/local/bin/wp mode=0776 group=wheel
