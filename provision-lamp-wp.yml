@@ -37,6 +37,9 @@
 
     - name: Add user {{admin_user}}
       user: name="{{admin_user}}" comment="Admin User" group=wheel
+      
+    - name: Enable mariadb repo
+      copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo user=root group=root
 
     - name: Install httpd
       yum: name=httpd state=present
@@ -52,9 +55,9 @@
     - name: Install MariaDB
       yum: name="{{item}}" state=present
       with_items:
-        - mysql-server
-        - mysql
-        - python-mysqldb
+        - mariadb-server
+        - mariadb
+        - MySQL-python
     
     #- name: Just for added insurance, pip install the mysql-python lib
      # pip: name=MySQL-python
