@@ -38,8 +38,8 @@
     - name: Add user {{admin_user}}
       user: name="{{admin_user}}" comment="Admin User" group=wheel
       
-    - name: Enable mariadb repo
-      copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo owner=root group=root
+    #- name: Enable mariadb repo
+      #copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo owner=root group=root
 
     - name: Install httpd
       yum: name=httpd state=present
@@ -55,17 +55,20 @@
     - name: Install MariaDB
       yum: name="{{item}}" state=present
       with_items:
-        - MariaDB-server
-        - MariaDB-client
-        - MariaDB-devel
+        #- MariaDB-server
+        #- MariaDB-client
+        #- MariaDB-devel
+        - mysql-server
+        - mysql
+        - mysql-devel
         - MySQL-python
         - python-pip
         
-    - name: Create symlink for mariadb_config
+   # - name: Create symlink for mariadb_config
       #command: ln -s /usr/bin/mariadb_config /usr/bin/mysql_config
-      file: src=/usr/bin/mariadb_config dest=/usr/bin/mysql_config owner=root group=root state=link
+    #  file: src=/usr/bin/mariadb_config dest=/usr/bin/mysql_config owner=root group=root state=link
     
-    - name: Just for added insurance, pip install the mysql-python lib
+   - name: Just for added insurance, pip install the mysql-python lib
       shell: sudo pip install MySQL-python
 
     - name: Start services
