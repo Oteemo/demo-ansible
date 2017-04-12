@@ -17,7 +17,7 @@
         ec2:
           key_name: "{{keypair}}"
           instance_type: "{{instancesize}}"
-          image: "{{amitouser}}"
+          image: "{{amitouse}}"
           wait: yes
           group: webservers
           count: "{{numberofservers}}"
