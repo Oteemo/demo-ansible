@@ -56,7 +56,7 @@
       yum: name="{{item}}" state=present
       with_items:
         - mariadb-server
-        - mariadb
+        - mariadb-client
         - MySQL-python
     
     #- name: Just for added insurance, pip install the mysql-python lib
@@ -66,7 +66,7 @@
       service: name="{{item}}" state=started enabled=yes
       with_items:
         - httpd
-        - mysqld
+        - mariadb
 
 #    - name: Open the correct IPTables ports
 #      lineinfile: dest=/etc/sysconfig/iptables
