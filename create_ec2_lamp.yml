@@ -22,6 +22,7 @@
           count: {{numberofservers}}
           vpc_subnet_id: "{{subnettolaunchin}}"
           assign_public_ip: yes
+          region: "{{awsregion}}"
           state: present
           instance_tags:
              Name: "{{instancename}}"
@@ -34,3 +35,4 @@
        
        - name: Force refresh inventory
          meta: refresh_inventory
+         
