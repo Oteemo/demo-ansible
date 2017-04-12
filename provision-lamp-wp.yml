@@ -113,23 +113,23 @@
     - name: Unarchive Wordpress # Requires Ansible 2.1+
       unarchive: src=/var/www/html/latest.tar.gz dest=/var/www/html owner="{{website_user}}" group="{{website_group}}" copy=no
 
-    - name: Clean out anonymous users and privileges
-      mysql_user: name='' host=localhost state=absent
+    #- name: Clean out anonymous users and privileges
+    #  mysql_user: name='' host=localhost state=absent
 
-    - name: Delete all anonymous db users
-      mysql_user: name='' host_all=yes state=absent
+    #- name: Delete all anonymous db users
+    #  mysql_user: name='' host_all=yes state=absent
 
-    - name: Delete the test database
-      mysql_db: name=test state=absent
+#    - name: Delete the test database
+#      mysql_db: name=test state=absent
 
-    - name: Deletes the {{dbname}} database if it exists #For staging ONLY!
-      mysql_db: name={{dbname}} state=absent
+#    - name: Deletes the {{dbname}} database if it exists #For staging ONLY!
+#      mysql_db: name={{dbname}} state=absent
 
-    - name: Create database and grant permissions
-      mysql_db: name="{{dbname}}" state=present
+#    - name: Create database and grant permissions
+#      mysql_db: name="{{dbname}}" state=present
 
-    - name: Create mysql user {{website_user}}
-      mysql_user: name={{website_user}} password={{dbpassword}} priv={{dbname}}.*:ALL state=present
+ #   - name: Create mysql user {{website_user}}
+ #     mysql_user: name={{website_user}} password={{dbpassword}} priv={{dbname}}.*:ALL state=present
 
     - name: Move Wordpress files to webroot
       shell: 'mv /var/www/html/wordpress/* /var/www/html/'
