@@ -62,7 +62,7 @@
         - mysql
         - mysql-devel
         - MySQL-python
-        - python-pip
+        - python-mysqldb
         
    # - name: Create symlink for mariadb_config
       #command: ln -s /usr/bin/mariadb_config /usr/bin/mysql_config
