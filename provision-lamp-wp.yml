@@ -8,7 +8,7 @@
 
   vars:
     wordpress_url: https://wordpress.org/latest.tar.gz
-    admin_user: arka
+    admin_user: greg
     website_name: Oteemo
     website_url: stage.oteemo.com
     website_user: oteemocom
