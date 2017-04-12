@@ -63,13 +63,6 @@
         - mysql-devel
         - MySQL-python
         - python-mysqldb
-        
-   # - name: Create symlink for mariadb_config
-      #command: ln -s /usr/bin/mariadb_config /usr/bin/mysql_config
-    #  file: src=/usr/bin/mariadb_config dest=/usr/bin/mysql_config owner=root group=root state=link
-    
-   - name: Just for added insurance, pip install the mysql-python lib
-      shell: sudo pip install MySQL-python
 
     - name: Start services
       service: name="{{item}}" state=started enabled=yes
