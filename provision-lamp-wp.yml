@@ -52,15 +52,15 @@
     - name: Install MariaDB
       yum: name="{{item}}" state=present
       with_items:
-        - mariadb-server
-        - mariadb
+        - mysql-server
+        - mysql
         - MySQL-python
 
     - name: Start services
       service: name="{{item}}" state=started enabled=yes
       with_items:
         - httpd
-        - mariadb
+        - mysqld
 
 #    - name: Open the correct IPTables ports
 #      lineinfile: dest=/etc/sysconfig/iptables
