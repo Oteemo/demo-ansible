@@ -60,6 +60,9 @@
         - MariaDB-devel
         - MySQL-python
         - python-pip
+        
+    - name: Create symlink for mariadb_config
+      command: ln -s /usr/bin/mariadb_config /usr/bin/mysql_config
     
     - name: Just for added insurance, pip install the mysql-python lib
       shell: sudo pip install MySQL-python
