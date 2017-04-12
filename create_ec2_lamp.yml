@@ -21,7 +21,7 @@
           instance_type: "{{instancesize}}"
           image: "{{amitouse}}"
           wait: yes
-          group: webservers
+          group: webserver-sg
           count: "{{numberofservers}}"
           vpc_subnet_id: "{{subnettolaunchin}}"
           assign_public_ip: yes
