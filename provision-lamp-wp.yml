@@ -98,6 +98,8 @@
 
     # - name: Restart service firewalld
     #   service: name=firewalld state=restarted
+    - name: Set python27 as default
+      alternatives: name=python path=/usr/bin/python2.7
 
     - name: Create group {{website_group}}
       group: name="{{website_group}}" state=present
