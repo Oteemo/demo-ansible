@@ -62,7 +62,6 @@
         - mysql
         - mysql-devel
         - MySQL-python
-        - python-mysqldb
 
     - name: Start services
       service: name="{{item}}" state=started enabled=yes
