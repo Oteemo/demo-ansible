@@ -39,7 +39,7 @@
       user: name="{{admin_user}}" comment="Admin User" group=wheel
       
     - name: Enable mariadb repo
-      copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo user=root group=root
+      copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo owner=root group=root
 
     - name: Install httpd
       yum: name=httpd state=present
