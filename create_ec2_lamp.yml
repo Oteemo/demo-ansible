@@ -3,6 +3,7 @@
 
 - hosts: localhost
   connection: local
+  gather_facts: no
   
   vars:
     awsregion: us-east-1
