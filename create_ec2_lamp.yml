@@ -10,6 +10,7 @@
     instancename: webserver01
     keypair: ec2-ol-mgt
     amitouse: ami-22ce4934
+    numberofservers: 1
     
   tasks:
       - name: Launch ec2 instance
@@ -19,7 +20,7 @@
           image: "{{amitouser}}"
           wait: yes
           group: webservers
-          count: {{numberofservers}}
+          count: "{{numberofservers}}"
           vpc_subnet_id: "{{subnettolaunchin}}"
           assign_public_ip: yes
           region: "{{awsregion}}"
