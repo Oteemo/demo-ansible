@@ -10,7 +10,6 @@
     instancesize: t2.micro
     instancename: webserver01
     keypair: ec2-ol-mgt
-#    amitouse: ami-22ce4934 # Amazon Linux
     amitouse: ami-43745729 # CentOS 7.3
     numberofservers: 1
     subnettolaunchin: subnet-c7b3549c
