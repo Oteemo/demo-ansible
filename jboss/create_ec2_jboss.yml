@@ -38,7 +38,7 @@
              
       - name: debug ec2 
         debug: 
-          var: ec2
+          var: ec2.results[].instances
 
       - name: Wait until port 22 becomes active
         local_action: wait_for host={{ item.public_ip }} port=22 state=started
