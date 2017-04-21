@@ -21,8 +21,8 @@
     dbpassword: "Us34B3tt3rP@$$w0rd!"
 
   tasks:
-    - name: Update all packages
-      yum: name=* state=latest
+      #- name: Update all packages
+      #yum: name=* state=latest
 
     - name: Install nano, wget and ntpd
       yum: name="{{item}}" state=present
@@ -38,7 +38,7 @@
     - name: Add user {{admin_user}}
       user: name="{{admin_user}}" comment="Admin User" group=wheel
       
-    #- name: Enable mariadb repo
+      #- name: Enable mariadb repo
       #copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo owner=root group=root
 
     - name: Install httpd
@@ -55,19 +55,16 @@
     - name: Install MariaDB
       yum: name="{{item}}" state=present
       with_items:
-        #- MariaDB-server
-        #- MariaDB-client
-        #- MariaDB-devel
-        - mysql-server
-        - mysql
-        - mysql-devel
+        - mariadb-server
+        - mariadb-devel
+          #    - MariaDB-client
         - MySQL-python
 
     - name: Start services
       service: name="{{item}}" state=started enabled=yes
       with_items:
         - httpd
-        - mysqld
+        - mariadb
 
 #    - name: Open the correct IPTables ports
 #      lineinfile: dest=/etc/sysconfig/iptables
@@ -98,8 +95,9 @@
 
     # - name: Restart service firewalld
     #   service: name=firewalld state=restarted
-    - name: Set python27 as default
-      alternatives: name=python path=/usr/bin/python2.7
+    
+    #- name: Set python27 as default
+    #  alternatives: name=python path=/usr/bin/python2.7
 
     - name: Create group {{website_group}}
       group: name="{{website_group}}" state=present
@@ -113,23 +111,23 @@
     - name: Unarchive Wordpress # Requires Ansible 2.1+
       unarchive: src=/var/www/html/latest.tar.gz dest=/var/www/html owner="{{website_user}}" group="{{website_group}}" copy=no
 
-    #- name: Clean out anonymous users and privileges
-    #  mysql_user: name='' host=localhost state=absent
+    - name: Clean out anonymous users and privileges
+      mysql_user: name='' host=localhost state=absent
 
-    #- name: Delete all anonymous db users
-    #  mysql_user: name='' host_all=yes state=absent
+    - name: Delete all anonymous db users
+      mysql_user: name='' host_all=yes state=absent
 
-#    - name: Delete the test database
-#      mysql_db: name=test state=absent
+    - name: Delete the test database
+      mysql_db: name=test state=absent
 
-#    - name: Deletes the {{dbname}} database if it exists #For staging ONLY!
-#      mysql_db: name={{dbname}} state=absent
+    - name: Deletes the {{dbname}} database if it exists #For staging ONLY!
+      mysql_db: name={{dbname}} state=absent
 
-#    - name: Create database and grant permissions
-#      mysql_db: name="{{dbname}}" state=present
+    - name: Create database and grant permissions
+      mysql_db: name="{{dbname}}" state=present
 
- #   - name: Create mysql user {{website_user}}
- #     mysql_user: name={{website_user}} password={{dbpassword}} priv={{dbname}}.*:ALL state=present
+    - name: Create mysql user {{website_user}}
+      mysql_user: name={{website_user}} password={{dbpassword}} priv={{dbname}}.*:ALL state=present
 
     - name: Move Wordpress files to webroot
       shell: 'mv /var/www/html/wordpress/* /var/www/html/'
@@ -137,14 +135,14 @@
     - name: Delete *.gz in webroot
       file: path=/var/www/html/latest.tar.gz state=absent
 
- #   - name: Write wp-config.php to webroot
- #     template: src=files/wp-config.php.j2 dest=/var/www/wp-config.php owner=root group=root mode=0644
+    - name: Write wp-config.php to webroot
+      template: src=files/wp-config.php.j2 dest=/var/www/wp-config.php owner=root group=root mode=0644
 
     - name: Download and install wp-cli
       get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/usr/local/bin/wp mode=0776 group=wheel
 
     - name: Install and configure the latest version of Wordpress with wp-cli
-      command: chdir=/var/www/html wp core install --url={{website_url}} --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
+      command: chdir=/var/www/html /usr/local/bin/wp core install --url={{website_url}} --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
 
 #    - name: Install and activate the Divi 2.0 theme
 #      command: chdir=/var/www/html wp theme install https://s3.amazonaws.com/arka-sandbox/Divi.zip --activate
