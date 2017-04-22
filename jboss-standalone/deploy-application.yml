@@ -2,6 +2,7 @@
 # This playbook deploys two simple applications to JBoss server. 
 
 - hosts: all
+  become: yes
 
   roles:
 # Optionally, (re)deploy JBoss here	  
