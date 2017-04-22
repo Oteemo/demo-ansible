@@ -1,0 +1,15 @@
+# Here are variables related to the standalone JBoss installation
+
+http_port: 8080
+https_port: 8443
+
+awsregion: us-east-1
+numberofservers: 3
+instancesize: t2.micro
+keypair: ec2-ol-mgt
+instancename: webserver-wp
+amitouse: ami-43745729 # CentOS 7.3
+subnettolaunchin: subnet-c7b3549c
+
+# This user name will be set by Tower, when run through Tower
+tower_user_name: admin
