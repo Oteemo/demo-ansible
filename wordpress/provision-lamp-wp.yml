@@ -21,9 +21,6 @@
     dbpassword: "Us34B3tt3rP@$$w0rd!"
 
   tasks:
-    - name: Update all packages
-      yum: name=* state=latest
-
     - name: Install nano, wget and ntpd
       yum: name="{{item}}" state=present
       with_items:
