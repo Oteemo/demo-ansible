@@ -28,12 +28,12 @@
           region: "{{awsregion}}"
           state: present
           instance_tags:
-             Name: "{{ item }}"
-             #Application: webservers
+             Name: "{{ item.name }}"
+             Application: "{{ item.app }}"
         with_items: 
-          - webserver-jb
-          - middleware-jb
-          - database-jb
+          - { name: 'webserver-jb', app: 'webserver' }
+          - { name: 'middleware-jb', app: 'middleware' }
+          - { name: 'database-jb', app: 'database' }
         register: ec2
              
       - name: Wait until port 22 becomes active
