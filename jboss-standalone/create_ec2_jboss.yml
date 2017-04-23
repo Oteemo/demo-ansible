@@ -49,7 +49,7 @@
       - name: Register instances
         ec2_elb:
         instance_id: '{{ ec2.instances.instance_ids|join(",") }}'
-          state: present
+        state: present
              
       - name: Force refresh inventory
         meta: refresh_inventory
