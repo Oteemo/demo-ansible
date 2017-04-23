@@ -41,6 +41,7 @@
           name: "ELB_TM_demo"
           state: present
           subnets: "{{ subnettolaunchin }}"
+          region: "{{ awsregion }}"
           listeners:
             - protocol: http
               load_balancer_port: 80
