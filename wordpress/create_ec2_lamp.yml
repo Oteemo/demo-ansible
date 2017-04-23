@@ -8,7 +8,7 @@
   vars:
     awsregion: us-east-1
     instancesize: t2.micro
-    instancename: webserver-wp
+    instancename: webserver-wp-gjp
     keypair: ec2-ol-mgt
     amitouse: ami-43745729 # CentOS 7.3
     numberofservers: 1
@@ -29,7 +29,7 @@
           state: present
           instance_tags:
              Name: "{{instancename}}"
-             Application: webservers
+             Application: webservers-wp-gjp
         register: ec2
              
       - name: Wait until port 22 becomes active

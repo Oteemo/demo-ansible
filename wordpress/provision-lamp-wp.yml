@@ -1,7 +1,7 @@
 # Build a Wordpress install on a RHEL/CentOS staging server
 # Components installed: httpd, php, php-mysql, wp-cli, mysql, mysqld
 
-- hosts: tag_Application_webservers
+- hosts: tag_Application_webservers-wp-gjp
   become: True
   become_user: root
   gather_facts: No
