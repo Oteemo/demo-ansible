@@ -1,7 +1,12 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This is a sample WordPress site installed on 1 instance. There are 3 playbooks:
+     - provision-aws-wordpress.yml
+     - deploy-wordpress.yml
+     - update-wordpress.yml
+
+The order of the demo is to provision. deploy and then update. Using Ansible Tower, a workflow will provision/deploy. Then log is, show there are updates available, and then update.
 
 Requirements
 ------------

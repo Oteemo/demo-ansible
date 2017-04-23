@@ -4,7 +4,7 @@
 - hosts: tag_Application_webservers-wp-gjp
   become: True
   become_user: root
-  gather_facts: No
+  gather_facts: Yes
 
   vars:
     wordpress_url: https://wordpress.org/latest.tar.gz
