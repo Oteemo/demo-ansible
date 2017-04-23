@@ -48,7 +48,7 @@
 
       - name: Register instances
         local_action: ec2_elb
-        instance_id: "{{ ansible_ec2_instance_id }}"
+          instance_id: "{{ ansible_ec2_instance_id }}"
           state: present
           ec2_elbs: "{{ item }}"
         with_items: "{{ ec2.instances }}"
