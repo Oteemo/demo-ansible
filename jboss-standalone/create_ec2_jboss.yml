@@ -38,7 +38,7 @@
       - name: Create an ELB 
         ec2_elb_lb:
         args:
-          name: "ELB_TM_demo"
+          name: "ELB-TM-demo"
           state: present
           subnets: "{{ subnettolaunchin }}"
           region: "{{ awsregion }}"
