@@ -38,7 +38,7 @@
       - name: Create an ELB 
         ec2_elb_lb:
         args:
-          name: "elb_jboss"
+          name: "elb-jboss"
           state: present
           subnets: "{{ subnettolaunchin }}"
           region: "{{ awsregion }}"
