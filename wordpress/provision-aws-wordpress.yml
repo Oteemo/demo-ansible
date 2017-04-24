@@ -7,7 +7,7 @@
   
   vars:
     awsregion: us-east-1
-    instancesize:- t2.micro
+    instancesize: t2.micro
     instancename: webserver-wp
     keypair: ec2-ol-mgt
     amitouse: ami-43745729 # CentOS 7.3
