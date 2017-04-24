@@ -29,7 +29,7 @@
           state: present
           instance_tags:
              Name: "{{instancename}}"
-             Application: webservers-wp-gjp
+             Application: webserver-wp-gjp
         register: ec2
              
       - name: Wait until port 22 becomes active
@@ -38,3 +38,7 @@
        
       - name: Force refresh inventory
         meta: refresh_inventory
+
+      - name: Public IP of instance is 
+        debug:
+          var: ec2.instances[0].public_ip
