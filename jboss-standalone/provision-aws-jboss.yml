@@ -6,13 +6,11 @@
   gather_facts: no
   
   vars:
-    awsregion: us-east-1
-    #instancesize: t2.micro
-    instancesize: t2.small
-    keypair: ec2-ol-mgt
-    #amitouse: ami-6c1e8f04
-    amitouse: ami-43745729 # CentOS 7.3
-    numberofservers: 3
+    awsregion:        us-east-1
+    instancesize:     t2.micro
+    keypair:          ec2-ol-mgt
+    amitouse:         ami-43745729 # CentOS 7.3
+    numberofservers:  3
     subnettolaunchin: subnet-c7b3549c
     
   tasks:
