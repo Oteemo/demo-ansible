@@ -1,0 +1,41 @@
+---
+# Creates ec2 instance, then installs LAMP stack in it. Follows up with a current WordPress install complete with theme.
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  
+  vars:
+    awsregion: us-east-1
+    #instancesize: t2.micro
+    instancesize: t2.small
+    keypair: ec2-ol-mgt
+    #amitouse: ami-6c1e8f04
+    amitouse: ami-43745729 # CentOS 7.3
+    numberofservers: 3
+    subnettolaunchin: subnet-c7b3549c
+    
+  tasks:
+      - name: gather ec2 remote facts for the TicketMonster instances
+        ec2_remote_facts:
+          region: "{{ awsregion }}"
+          filters:
+            "tag:Name": jboss_ticketmoster
+        register: ec2_info
+             
+      - name: debug
+        debug:
+          var: item.id
+        with_items: "{{ ec2_info.instances }}"
+
+      - name: Register instances
+        ec2_elb:
+        args:
+          region: "{{ awsregion }}"
+          ec2_elbs: elb-jboss
+          instance_id: '{{ item.id|join(",") }}'
+          state: present
+        with_items: "{{ ec2_info.instances }}"
+             
+      - name: Force refresh inventory
+        meta: refresh_inventory

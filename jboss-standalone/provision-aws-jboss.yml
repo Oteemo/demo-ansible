@@ -35,47 +35,47 @@
         local_action: wait_for host={{ item.public_ip }} port=22 state=started
         with_items: "{{ ec2.instances }}"
        
-      - name: Create an ELB 
-        ec2_elb_lb:
-        args:
-          name: "elb-jboss"
-          state: present
-          subnets: "{{ subnettolaunchin }}"
-          region: "{{ awsregion }}"
-          listeners:
-            - protocol: http
-              load_balancer_port: 80
-              instance_port: 8080
-
-    #      - name: ec2
-    #        debug:
-    #          var: ec2.instances
-
-      - name: gather ELB
-        ec2_elb_facts:
-          region: "{{ awsregion }}"
-          names:
-              - elb-jboss
-        register: elb_facts
-
-      - name: gather ec2 remote facts
-        ec2_remote_facts:
-          region: "{{ awsregion }}"
-        register: ec2_facts
-             
-      - name: debug
-        debug:
-          var: '{{ item.o.id }}'
-        with_subelements: '{{ ec2_facts }}'
-
-      - name: Register instances
-        ec2_elb:
-        args:
-          region: "{{ awsregion }}"
-          ec2_elbs: "{{ elbs.name }}"
-          instance_id: '{{ item.0.id|join(",") }}'
-          state: present
-        with_subelements: "{{ ec2_facts }}"
-             
-      - name: Force refresh inventory
-        meta: refresh_inventory
+#      - name: Create an ELB 
+#        ec2_elb_lb:
+#        args:
+#          name: "elb-jboss"
+#          state: present
+#          subnets: "{{ subnettolaunchin }}"
+#          region: "{{ awsregion }}"
+#          listeners:
+#            - protocol: http
+#              load_balancer_port: 80
+#              instance_port: 8080
+#
+#    #      - name: ec2
+#    #        debug:
+#    #          var: ec2.instances
+#
+#      - name: gather ELB
+#        ec2_elb_facts:
+#          region: "{{ awsregion }}"
+#          names:
+#              - elb-jboss
+#        register: elb_facts
+#
+#      - name: gather ec2 remote facts
+#        ec2_remote_facts:
+#          region: "{{ awsregion }}"
+#        register: ec2_facts
+#             
+#      - name: debug
+#        debug:
+#          var: '{{ item.o.id }}'
+#        with_subelements: '{{ ec2_facts }}'
+#
+#      - name: Register instances
+#        ec2_elb:
+#        args:
+#          region: "{{ awsregion }}"
+#          ec2_elbs: "{{ elbs.name }}"
+#          instance_id: '{{ item.0.id|join(",") }}'
+#          state: present
+#        with_subelements: "{{ ec2_facts }}"
+#             
+#      - name: Force refresh inventory
+#        meta: refresh_inventory
