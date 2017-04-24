@@ -55,7 +55,7 @@
         ec2_elb_facts:
           region: "{{ awsregion }}"
           names:
-              - elb-tm-demo
+              - elb-jboss
         register: elb_facts
 
       - name: gather ec2 remote facts
