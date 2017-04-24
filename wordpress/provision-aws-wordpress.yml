@@ -29,7 +29,7 @@
           state: present
           instance_tags:
              Name: "{{instancename}}"
-             Application: webserver-wp-gjp
+             Application: webserver
         register: ec2
              
       - name: Wait until port 22 becomes active
