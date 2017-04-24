@@ -7,5 +7,5 @@
   gather_facts: No
 
   tasks:
-    - name: Install nano, wget and ntpd
+    - name: Update the packages to the latest
       yum: name=* state=latest
