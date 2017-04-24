@@ -20,7 +20,7 @@
         ec2_remote_facts:
           region: "{{ awsregion }}"
           filters:
-            "tag:Name": jboss_ticketmoster
+            "tag:Name": jboss_ticketmonster
         register: ec2_info
              
       - name: debug

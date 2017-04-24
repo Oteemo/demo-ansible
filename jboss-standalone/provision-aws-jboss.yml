@@ -28,7 +28,7 @@
           assign_public_ip: yes
           region: "{{ awsregion }}"
           state: present
-          instance_tags: "{'ansible_group':'jboss', 'type':'{{ instancesize }}', 'group':'webserver-sg','Name':'jboss_ticketmoster'}"
+          instance_tags: "{'ansible_group':'jboss', 'type':'{{ instancesize }}', 'group':'webserver-sg','Name':'jboss_ticketmonster'}"
         register: ec2
 
       - name: Wait until port 22 becomes active
