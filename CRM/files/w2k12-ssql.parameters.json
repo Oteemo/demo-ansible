@@ -1,0 +1,19 @@
+{
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "virtualMachineName": {
+            "value": "greg"
+        },
+        "virtualMachineSize": {
+            "value": "string"
+        },
+        "adminUsername": {
+            "value": "crm
+        },
+        "adminPassword": {
+            "value": "SpaceGhost!!1"
+        },
+    },
+}
