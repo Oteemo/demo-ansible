@@ -84,7 +84,7 @@
         admin_password: SpaceGhost!!1
         network_interfaces: "{{ resgrp }}-crm-test-nic-01"
         image:
-          offer: "{{ azure_publisher }}"
+          offer: "{{ azure_offer }}"
           publisher: "{{ azure_publisher }}"
           sku: standard
           version: latest
