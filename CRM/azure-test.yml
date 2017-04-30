@@ -7,6 +7,10 @@
     resgrp: CRM
     
   tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resgrp }}"
+
     - name: create CRM storage account
       azure_rm_storageaccount:
         resource_group: "{{ resgrp }}"
