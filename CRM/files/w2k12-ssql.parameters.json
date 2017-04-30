@@ -10,10 +10,10 @@
             "value": "string"
         },
         "adminUsername": {
-            "value": "crm
+            "value": "crm"
         },
         "adminPassword": {
             "value": "SpaceGhost!!1"
-        },
-    },
+        }
+    }
 }
