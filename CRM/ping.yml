@@ -1,6 +1,5 @@
 ---
-- hosts: tag_Application_webserver
-  become: True
+- become: True
   gather_facts: Yes
 
   vars:
