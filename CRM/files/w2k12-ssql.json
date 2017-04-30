@@ -15,30 +15,38 @@
             "type": "string"
         },
         "virtualNetworkName": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "networkInterfaceName": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "networkSecurityGroupName": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "adminPassword": {
             "type": "securestring"
         },
         "storageAccountName": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "diagnosticsStorageAccountName": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "diagnosticsStorageAccountId": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "subnetName": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "publicIpAddressName": {
+            "defaultValue": "gjp",
             "type": "string"
         },
         "publicIpAddressType": {
