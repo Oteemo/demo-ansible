@@ -27,18 +27,18 @@
   #      account_type: Standard_LRS
   #      name: "{{ resgrp }}storage"
   #  
-  #  - name: create CRM virtual network
-  #    azure_rm_virtualnetwork:
-  #      resource_group: "{{ resgrp }}"
-  #      name: "{{ resgrp }}-vnet"
-  #      address_prefixes: "192.168.168.0/24"
-  #  
-  #  - name: add CRM subnet
-  #    azure_rm_subnet:
-  #      resource_group: "{{ resgrp }}"
-  #      name: "{{ resgrp }}-subnet"
-  #      address_prefix: "192.168.168.0/24"
-  #      virtual_network: "{{ resgrp }}-vnet"
+    - name: create CRM virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resgrp }}"
+        name: "{{ resgrp }}-vnet"
+        address_prefixes: "192.168.168.0/24"
+    
+    - name: add CRM subnet
+      azure_rm_subnet:
+        resource_group: "{{ resgrp }}"
+        name: "{{ resgrp }}-subnet"
+        address_prefix: "192.168.168.0/24"
+        virtual_network: "{{ resgrp }}-vnet"
   #  
   #  - name: create CRM public ip
   #    azure_rm_publicipaddress:
