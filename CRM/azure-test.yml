@@ -4,7 +4,7 @@
   #  strategy: debug
   gather_facts: no
   vars:
-    resgrp: CRM
+    resgrp: tscrm
     
   tasks:
     - name: Create a resource group
