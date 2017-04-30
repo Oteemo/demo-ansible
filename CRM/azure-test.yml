@@ -78,6 +78,7 @@
         resource_group: "{{ resgrp }}"
         name: "{{ resgrp }}-crm-test"
         vm_size: Standard_DS11_v2
+        os_type: Windows
         storage_account: "{{ resgrp }}storage"
         storage_container: "{{ resgrp }}-crm-test"
         admin_username: crm
