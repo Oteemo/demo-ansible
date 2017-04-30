@@ -100,7 +100,6 @@
         os_type: Windows
         role_size: Standard_DS11_v2
         storage_account: "{{ resgrp }}storage"
-        network_interfaces: "{{ resgrp }}-test-nic-01"
         wait: True
         user: admin
         password: SpaceGhost!!1
