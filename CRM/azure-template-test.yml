@@ -7,10 +7,10 @@
     resgrp: gjptmpl
     
   tasks:
-      #    - name: Create a resource group
-      #azure_rm_resourcegroup:
-      #  name: "{{ resgrp }}"
-      #  location: eastus
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resgrp }}"
+        location: westus
 
     - name: Create Azure Deploy
       azure_rm_deployment:
