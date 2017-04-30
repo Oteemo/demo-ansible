@@ -1,3 +1,10 @@
 ---
-  - name: Ping test
-    win_ping:
+- hosts: tag_Application_webserver
+  become: True
+  gather_facts: Yes
+
+  vars:
+
+  tasks:
+    - name: Ping test
+      win_ping:
