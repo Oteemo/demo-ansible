@@ -5,6 +5,8 @@
   gather_facts: no
   vars:
     resgrp: tscrm
+    azure_offer: SQL2012SP3-WS2012R2
+    azure_publisher: MicrosoftSQLServer
     
   tasks:
     - name: Create a resource group
@@ -82,7 +84,7 @@
         admin_password: SpaceGhost!!1
         network_interfaces: "{{ resgrp }}-crm-test-nic-01"
         image:
-          offer: UbuntuServer
-          publisher: Canonical
-          sku: "16.04.0-LTS"
+          offer: "{{ azure_publisher }}"
+          publisher: "{{ azure_publisher }}"
+          sku: standard
           version: latest
