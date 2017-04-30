@@ -14,19 +14,6 @@
         name: "{{ resgrp }}"
         location: eastus
 
-  #    - name: remove CRM storage account
-  #    azure_rm_storageaccount:
-  #      resource_group: "{{ resgrp }}"
-  #      account_type: Standard_LRS
-  #      name: "{{ resgrp }}storage"
-  #      state: absent
-  #  
-  #  - name: create CRM storage account
-  #    azure_rm_storageaccount:
-  #      resource_group: "{{ resgrp }}"
-  #      account_type: Standard_LRS
-  #      name: "{{ resgrp }}storage"
-  #  
     - name: create CRM virtual network
       azure_rm_virtualnetwork:
         resource_group: "{{ resgrp }}"
@@ -39,75 +26,6 @@
         name: "{{ resgrp }}-subnet"
         address_prefix: "192.168.168.0/24"
         virtual_network: "{{ resgrp }}-vnet"
-  #  
-  #  - name: create CRM public ip
-  #    azure_rm_publicipaddress:
-  #      resource_group: "{{ resgrp }}"
-  #      allocation_method: Dynamic
-  #      name: "{{ resgrp }}-test"
-  #      domain_name_label: "{{ resgrp }}-crm-test"
-  #  
-  #  - name: create security group that allows SSH, web and CRM
-  #    azure_rm_securitygroup:
-  #      resource_group: "{{ resgrp }}"
-  #      name: "{{ resgrp }}-test-secgrp"
-  #      rules:
-  #        - name: ssh
-  #          protocol: Tcp
-  #          destination_port_range: 22
-  #          access: Allow
-  #          priority: 101
-  #          direction: Inbound
-  #        - name: iis
-  #          protocol: Tcp
-  #          destination_port_range: 80
-  #          access: Allow
-  #          priority: 102
-  #          direction: Inbound
-  #        - name: crm
-  #          protocol: Tcp
-  #          destination_port_range: 3389
-  #          access: Allow
-  #          priority: 103
-  #          direction: Inbound
-  #        - name: crm
-  #          protocol: Tcp
-  #          destination_port_range: 5555
-  #          access: Allow
-  #          priority: 104
-  #          direction: Inbound
-  #        - name: crm
-  #          protocol: Tcp
-  #          destination_port_range: 5896
-  #          access: Allow
-  #          priority: 105
-  #          direction: Inbound
-    
-  #  - name: create nic
-  #    azure_rm_networkinterface:
-  #      resource_group: "{{ resgrp }}"
-  #      name: "{{ resgrp }}-test-nic-01"
-  #      virtual_network: "{{ resgrp }}-vnet"
-  #      subnet: "{{ resgrp }}-subnet"
-  #      public_ip_name: "{{ resgrp }}-test"
-  #      security_group: "{{ resgrp }}-test-secgrp"
-    
-  #    - name: create azure
-  #    azure:
-  #      enable_winrm: True
-  #      location: eastus
-  #      name: "{{ resgrp }}-test"
-  #      os_type: Windows
-  #      role_size: Standard_DS11_v2
-  #      storage_account: "{{ resgrp }}storage"
-  #      wait: True
-  #      user: admin
-  #      password: SpaceGhost!!1
-  #      image:
-  #        offer: "{{ azure_offer }}"
-  #        publisher: "{{ azure_publisher }}"
-  #        sku: standard
-  #        version: latest
 
     - name: create virtual machine
       azure_rm_virtualmachine:
