@@ -44,3 +44,10 @@
           publisher: "{{ azure_publisher }}"
           sku: standard
           version: latest
+
+    - name: Force refresh inventory
+      meta: refresh_inventory
+
+    - name: ping test
+      win_ping:
+
