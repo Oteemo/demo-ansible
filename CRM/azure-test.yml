@@ -14,6 +14,13 @@
         name: "{{ resgrp }}"
         location: eastus
 
+    - name: remove CRM storage account
+      azure_rm_storageaccount:
+        resource_group: "{{ resgrp }}"
+        account_type: Standard_LRS
+        name: "{{ resgrp }}storage"
+        state: absent
+    
     - name: create CRM storage account
       azure_rm_storageaccount:
         resource_group: "{{ resgrp }}"
@@ -59,9 +66,21 @@
             direction: Inbound
           - name: crm
             protocol: Tcp
-            destination_port_range: 5555
+            destination_port_range: 3389
             access: Allow
             priority: 103
+            direction: Inbound
+          - name: crm
+            protocol: Tcp
+            destination_port_range: 5555
+            access: Allow
+            priority: 104
+            direction: Inbound
+          - name: crm
+            protocol: Tcp
+            destination_port_range: 5986
+            access: Allow
+            priority: 105
             direction: Inbound
     
     - name: create nic
@@ -84,6 +103,7 @@
         admin_username: crm
         admin_password: SpaceGhost!!1
         network_interfaces: "{{ resgrp }}-test-nic-01"
+        open_ports: yes
         image:
           offer: "{{ azure_offer }}"
           publisher: "{{ azure_publisher }}"
