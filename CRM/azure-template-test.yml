@@ -16,6 +16,6 @@
       azure_rm_deployment:
         state: present
         resource_group_name: "{{ resgrp }}"
-        template_link: winrm.json
-        parameters_link: winrm.json
+        template_link: https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/winrm.json
+        parameters_link: https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/winrm.parameters.json
 
