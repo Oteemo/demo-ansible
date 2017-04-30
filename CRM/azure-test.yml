@@ -113,7 +113,7 @@
       azure_rm_virtualmachine:
         admin_username: crm
         admin_password: SpaceGhost!!1
-        name: "{{ resgrp }}-test"
+        name: "{{ resgrp }}"
         open_ports: 22,80,443,3389,5986 
         os_type: Windows
         public_ip_allocation_method: Static
