@@ -18,7 +18,7 @@
       azure_rm_storageaccount:
         resource_group: "{{ resgrp }}"
         account_type: Standard_LRS
-        name: "{{ resgrp }}-storage"
+        name: "{{ resgrp }}storage"
     
     - name: create CRM virtual network
       azure_rm_virtualnetwork:
