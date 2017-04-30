@@ -44,4 +44,9 @@
           publisher: "{{ azure_publisher }}"
           sku: standard
           version: latest
+      register: azure-vm
+
+    - name: return from Azure create
+      debug:
+        var: azure-vm
 
