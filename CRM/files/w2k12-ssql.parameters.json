@@ -1,19 +1,19 @@
 {
-    "parameters": {
-        "location": {
-            "value": "eastus"
-        },
-        "virtualMachineName": {
-            "value": "greg"
-        },
-        "virtualMachineSize": {
-            "value": "string"
-        },
-        "adminUsername": {
-            "value": "crm"
-        },
-        "adminPassword": {
-            "value": "SpaceGhost!!1"
-        }
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "virtualMachineName": {
+      "value": "greg"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_DS11_v2"
+    },
+    "adminUsername": {
+      "value": "crm"
+    },
+    "adminPassword": {
+      "value": "SpaceGhost!!1"
     }
+  }
 }
