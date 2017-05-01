@@ -11,7 +11,7 @@
     azure_vm_name: ts-crtm
     azure_pubip_name: "{{ azure_resgrp}}pip"
     azure_vnet: "{{ azure_resgrp }}vnet"
-    azure_subnet: "{{ azure_resgrp }}snet"
+    azure_snet: "{{ azure_resgrp }}snet"
     
   tasks:
     - name: Create a resource group
