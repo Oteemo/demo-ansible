@@ -6,3 +6,9 @@
     - name: Ping test
       win_ping:
         data: pong
+
+    - name: whoami
+        win_command: whoami
+        register: whoami_out
+    - debug:
+        var: whoami
