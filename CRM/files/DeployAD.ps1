@@ -17,4 +17,5 @@ Install-ADDSForest `
 -LogPath "C:\Windows\NTDS" `
 -NoRebootOnCompletion:$false `
 -SysvolPath "C:\Windows\SYSVOL" `
--Force:$true
+-Force:$true `
+-SafeModeAdministratorPassword "SpaceGhost!!1"
