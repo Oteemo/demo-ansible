@@ -10,7 +10,6 @@
 
     - name: Install and configure Active Directory
       win_shell: c:\Windows\DeployAD.ps1
-      register: ad_out
 
-    - debug:
-        var: ad_out
+    - name: Reboot, because it is Windows
+      win_reboot:
