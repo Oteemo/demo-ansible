@@ -12,6 +12,8 @@
     azure_pubip_name: "{{ azure_resgrp}}pip"
     azure_vnet: "{{ azure_resgrp }}vnet"
     azure_snet: "{{ azure_resgrp }}snet"
+    azure_admin_username: 'crm'
+    azure_admin_password: 'SpaceGhost!!1'
     
   tasks:
     - name: Create a resource group
@@ -24,18 +26,18 @@
         resource_group_name: "{{ azure_resgrp }}"
         parameters:
           adminUsername:
-            value: 'crm'
+            value: "{{ azure_admin_username }}"
           adminPassword:
-            value: 'SpaceGhost!!1'
+            value: "{{ azure_admin_password }}"
           dnsLabelPrefix:
             value: "{{ azure_vm_name }}"
           vmName:
             value: "{{ azure_vm_name }}"
           publicIPAddressName: 
-           value: "{{ azure_pubip_name }} "
+           value: "{{ azure_pubip_name }}"
           virtualNetworkName: 
-            value: "{{ azure_vnet }} "
+            value: "{{ azure_vnet }}"
           subnetName: 
-            value: "{{ azure_snet }} "
+            value: "{{ azure_snet }}"
         template_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/sqlserver-deploy.json'
         state: present
