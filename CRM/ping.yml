@@ -1,5 +1,5 @@
 ---
-- hosts: 13.92.123.48
+- hosts: 13.64.111.152
   become: True
   gather_facts: Yes
 
