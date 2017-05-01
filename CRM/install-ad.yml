@@ -3,13 +3,14 @@
   gather_facts: 
 
   tasks:
-    - name: Install and configure Active Directory
+    - name: Copy powershell script to host
       win_copy:
         src: DeployAD.ps1
         dest: C:\Windows\DeployAD.ps1
 
     - name: Install and configure Active Directory
       win_shell: c:\Windows\DeployAD.ps1
+      register: ad_out
 
     - debug:
-        var: stdout
+        var: ad_out
