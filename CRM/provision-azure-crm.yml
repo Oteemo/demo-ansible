@@ -6,32 +6,36 @@
   gather_facts: no
   
   vars:
-    azure_location: eastus
-    azure_vm_size: Standard_DS11_v2
-    azure_name: ts-crtm
-    azure_keypair: ec2-ol-mgt
-    azure_offer: SQL2012SP3-WS2012R2
-    azure_publisher: MicrosoftSQLServer
+    azure_location: westus
+    azure_resgrp: gpryzby
+    azure_vm_name: ts-crtm
+    azure_pubip_name: "{{ azure_resgrp}}pip"
+    azure_vnet: "{{ azure_resgrp }}vnet"
+    azure_subnet: "{{ azure_resgrp }}snet"
     
   tasks:
-      - name: Deploy azure instance
-        azure_rm_virtualmachine:
-        resource_group: Testing
-        name: "{{ azure_name }}"
-        vm_size: "{{ azure_vm_size }}"
-        admin_username: chouseknecht
-        ssh_password: false
-        ssh_public_keys: "{{ ssh_keys }}"
-        image:
-          offer: "{{ azure_publisher }}"
-          publisher: "{{ azure_publisher }}"
-          sku: standard
-          version: latest
-        register: azure-inst
-             
-      - name: Wait until port 22 becomes active
-        local_action: wait_for host={{ item.public_ip }} port=22 state=started
-        with_items: "{{ azure-inst.instances }}"
-       
-      - name: Force refresh inventory
-        meta: refresh_inventory
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ azure_resgrp }}"
+        location: "{{ azure_location }}"
+
+    - name: Create Azure Deploy
+      azure_rm_deployment:
+        resource_group_name: "{{ azure_resgrp }}"
+        parameters:
+          adminUsername:
+            value: 'crm'
+          adminPassword:
+            value: 'SpaceGhost!!1'
+          dnsLabelPrefix:
+            value: "{{ azure_vm_name }}"
+          vmName:
+            value: "{{ azure_vm_name }}"
+          publicIPAddressName: 
+           value: "{{ azure_pubip_name }} "
+          virtualNetworkName: 
+            value: "{{ azure_vnet }} "
+          subnetName: 
+            value: "{{ azure_snet }} "
+        template_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/sqlserver-deploy.json'
+        state: present
