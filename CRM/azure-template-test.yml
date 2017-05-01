@@ -23,16 +23,6 @@
             value: 'SpaceGhost!!1'
           dnsLabelPrefix:
             value: 'crm'
-          vmName:
-            value: 'crm'
-          nicName:
-            value: 'crm'
-          virtualNetworkName:
-            value: 'crm'
-          publicIPAddressName:
-            value: 'crm'
-          subnetName:
-            value: 'crm'
-        template_link: 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/azuredeploy.json'
+        template_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/azuredeploy.json'
   #      template_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/w2k12-ssql.json'
   #      parameters_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/w2k12-ssql.parameters.json'
