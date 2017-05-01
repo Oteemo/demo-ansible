@@ -10,7 +10,7 @@
     - name: Create a resource group
       azure_rm_resourcegroup:
         name: "{{ resgrp }}"
-        location: westus
+        location: eastus
 
     - name: Create Azure Deploy
       azure_rm_deployment:
@@ -22,7 +22,7 @@
           adminPassword:
             value: 'SpaceGhost!!1'
           dnsLabelPrefix:
-            value: 'crm'
+            value: 'gpryzby-crm'
         template_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/azuredeploy.json'
   #      template_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/w2k12-ssql.json'
   #      parameters_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/w2k12-ssql.parameters.json'
