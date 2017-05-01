@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: 
+
+  tasks:
+    - name: Install and configure Active Directory
+      win_copy:
+        src: DeployAD.ps1
+        dest: C:\Windows\DeployAD.ps1
+
+    - name: Install and configure Active Directory
+      win_shell: c:\Windows\DeployAD.ps1
+
+    - debug:
+        var: stdout
