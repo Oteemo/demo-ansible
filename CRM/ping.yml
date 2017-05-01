@@ -8,7 +8,8 @@
         data: pong
 
     - name: whoami
-        win_command: whoami
-        register: whoami_out
+      win_command: whoami
+      register: whoami_out
+
     - debug:
         var: whoami
