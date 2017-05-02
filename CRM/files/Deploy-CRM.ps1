@@ -9,7 +9,7 @@ $output = "C:\Windows\CRM2013-Server-ENU-amd64.exe"
 $wc = New-Object System.Net.WebClient
 $wc.DownloadFile($url, $output)
 
-cd c:\Windows
+cd c:\Windows\Temp
 CRM2013-Server-ENU-amd64.exe extract:./crm2012
-cd gjp
-./SetupServer.exe /config c:\windows\gjp\crm2012.xml
+cd crm
+C:\Windows\Temp\crm\SetupServer.exe /config c:\Windows\Temp\crm2012.xml

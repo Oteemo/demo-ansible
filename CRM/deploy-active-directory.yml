@@ -6,7 +6,7 @@
     - name: Copy powershell script to host
       win_copy:
         src: Deploy-Active-Directory.ps1
-        dest: C:\Windows\Deploy-Active-Directory.ps1
+        dest: C:\Windows\Temp\Deploy-Active-Directory.ps1
 
     - name: Install and configure Active Directory
-      win_shell: c:\Windows\Deploy-Active-Directory.ps1
+      win_shell: c:\Windows\Temp\Deploy-Active-Directory.ps1
