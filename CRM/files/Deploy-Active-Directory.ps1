@@ -3,7 +3,12 @@
 #
 
 # Install the module
-Install-windowsfeature AD-domain-services
+Install-windowsfeature AD-domain-services -IncludeManagementTools
+
+Test-ADDSForestInstallation `
+-DomainName "TS.local" `
+-InstallDns:$true `
+-SafeModeAdministratorPassword "SpaceGhost!!1"
 
 # Install/config AD
 Install-ADDSForest `

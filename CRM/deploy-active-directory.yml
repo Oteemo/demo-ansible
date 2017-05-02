@@ -5,11 +5,11 @@
   tasks:
     - name: Copy powershell script to host
       win_copy:
-        src: DeployAD.ps1
-        dest: C:\Windows\DeployAD.ps1
+        src: Deploy-Active-Directory.ps1
+        dest: C:\Windows\Deploy-Active-Directory.ps1
 
     - name: Install and configure Active Directory
-      win_shell: c:\Windows\DeployAD.ps1
+      win_shell: c:\Windows\Deploy-Active-Directory.ps1
 
     - name: Reboot, because it is Windows
       win_reboot:
