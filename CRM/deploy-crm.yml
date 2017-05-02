@@ -15,3 +15,6 @@
 
     - name: Install and configure CRM
       win_shell: c:\Windows\Temp\Deploy-CRM.ps1
+
+    - name: Reboot, because it is Windows
+      win_reboot:
