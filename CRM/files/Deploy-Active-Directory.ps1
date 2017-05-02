@@ -5,11 +5,6 @@
 # Install the module
 Install-windowsfeature AD-domain-services -IncludeManagementTools
 
-Test-ADDSForestInstallation `
--DomainName "TS.local" `
--InstallDns:$true `
--SafeModeAdministratorPassword "SpaceGhost!!1"
-
 # Install/config AD
 Install-ADDSForest `
 -CreateDnsDelegation:$false `
@@ -23,4 +18,6 @@ Install-ADDSForest `
 -NoRebootOnCompletion:$false `
 -SysvolPath "C:\Windows\SYSVOL" `
 -Force:$true `
--SafeModeAdministratorPassword "SpaceGhost!!1"
+-SafeModeAdministratorPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)
+
+Install-ADDSDomainController -InstallDns -DomainName "TS.local" -Force:$true
