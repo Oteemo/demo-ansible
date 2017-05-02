@@ -8,5 +8,10 @@
         src: Deploy-CRM.ps1
         dest: C:\Windows\Deploy-CRM.ps1
 
+    - name: Copy config script to host
+      win_copy:
+        src: crm2012.config
+        dest: C:\Windows\crm2012.xml
+
     - name: Install and configure CRM
       win_shell: c:\Windows\Deploy-CRM.ps1
