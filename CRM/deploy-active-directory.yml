@@ -10,6 +10,3 @@
 
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Deploy-Active-Directory.ps1
-
-    - name: Reboot, because it is Windows
-      win_reboot:
