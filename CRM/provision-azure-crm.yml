@@ -41,3 +41,8 @@
             value: "{{ azure_snet }}"
         template_link: 'https://raw.githubusercontent.com/gpryzby/demo-ansible/CRM/CRM/files/sqlserver-deploy.json'
         state: present
+        register: az_instance
+
+    - name: Public IP
+      debug:
+          var: az_instance
