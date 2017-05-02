@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: 
+
+  tasks:
+    - name: Copy powershell script to host
+      win_copy:
+        src: Deploy-CRM.ps1
+        dest: C:\Windows\Deploy-CRM.ps1
+
+    - name: Install and configure CRM
+      win_shell: c:\Windows\Deploy-CRM.ps1
+
+    - name: Reboot, because it is Windows
+      win_reboot:
