@@ -45,4 +45,4 @@
 
     - name: Public IP
       debug:
-          var: az_instance
+          var: az_instance.deployment.instances[0].ips[0].public_ip
