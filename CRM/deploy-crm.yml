@@ -8,13 +8,18 @@
         src: Deploy-CRM.ps1
         dest: C:\Windows\Temp\Deploy-CRM.ps1
 
+    - name: Copy  script to host
+      win_copy:
+        src: Install-CRM.bat
+        dest: C:\Windows\Temp\Install-CRM.bat
+
     - name: Copy config script to host
       win_copy:
         src: crm2012.xml
         dest: C:\Windows\Temp\crm2012.xml
 
     - name: Install and configure CRM
-      win_shell: c:\Windows\Temp\Deploy-CRM.ps1
+      win_command: c:\Windows\Temp\Install-CRM.bat
 
     - name: Reboot, because it is Windows
       win_reboot:
