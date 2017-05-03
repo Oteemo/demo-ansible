@@ -18,6 +18,9 @@
         src: crm2012.xml
         dest: C:\Windows\Temp\crm2012.xml
 
+    - name: Download CRM exe
+      win_command: c:\Windows\Temp\Deploy-CRM.ps1
+
     - name: Install and configure CRM
       win_command: c:\Windows\Temp\Install-CRM.bat
 
