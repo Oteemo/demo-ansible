@@ -9,7 +9,11 @@ $wc = New-Object System.Net.WebClient
 $wc.DownloadFile($url, $output)
 
 # Extract the install
-c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /extract:c:\Windows\Temp\crm2013
+$crmexe = 'C:\Windows\Temp\CRM2013-Server-ENU-amd64.exe'
+$args = '/extract:c:\Windows\Temp\crm2013'
+& $crmexe $args
 
 # Run installer with config file
-C:\Windows\Temp\crm2013\SetupServer.exe /config c:\Windows\Temp\crm2012.xml
+$setup = 'C:\Windows\Temp\crm2013\SetupServer.exe'
+$xml = 'C:\Windows\Temp\crm2012.xml'
+& $setup /config $xml 
