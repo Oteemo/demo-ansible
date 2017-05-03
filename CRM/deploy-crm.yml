@@ -3,10 +3,11 @@
   gather_facts: 
 
   tasks:
-    - name: Copy powershell script to host
-      win_copy:
-        src: Deploy-CRM.ps1
-        dest: C:\Windows\Temp\Deploy-CRM.ps1
+    - name: Download exe
+      win_get_url:
+        url: https://download.microsoft.com/download/6/A/B/6AB1209C-8091-4BFA-B7B5-D4FFA454CA48/CRM2013-Server-ENU-amd64.exe
+        dest: C:\Windows\Temp\CRM2013-Server-ENU-amd64.exe
+        force: no
 
     - name: Copy  script to host
       win_copy:
@@ -17,9 +18,6 @@
       win_copy:
         src: crm2012.xml
         dest: C:\Windows\Temp\crm2012.xml
-
-    - name: Download CRM exe
-      win_shell: c:\Windows\Temp\Deploy-CRM.ps1
 
     - name: Install and configure CRM
       win_command: c:\Windows\Temp\Install-CRM.bat
