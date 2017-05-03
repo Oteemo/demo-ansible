@@ -2,9 +2,9 @@
   <Server>
     <Patch update="true"></Patch>
       <LicenseKey>MQM2H-JYYRB-RRD6J-8WBBC-CVBD3</LicenseKey>
-      <SqlServer>ts</SqlServer>
+      <SqlServer>crm</SqlServer>
       <Database create="true"/>
-      <Reporting URL="http://ts/ReportServer"/>
+      <Reporting URL="http://crm/ReportServer"/>
       <OrganizationCollation>Latin1_General_CI_AI</OrganizationCollation>
       <basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>
       <Organization>Trade Station</Organization>
@@ -27,7 +27,7 @@
       <SQM optin="true"/>
       <mu option="true"/>
       <Email>
-        <IncomingExchangeServer name="ts"/>
+        <IncomingExchangeServer name="crm"/>
       </Email>
   </Server>
 </CRMSetup>
