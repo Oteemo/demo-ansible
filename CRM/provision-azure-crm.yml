@@ -8,7 +8,7 @@
   vars:
     azure_location: westus
     azure_resgrp: gpryzby
-    azure_vm_name: crm
+    azure_vm_name: tscrm
     azure_pubip_name: "{{ azure_resgrp}}pip"
     azure_vnet: "{{ azure_resgrp }}vnet"
     azure_snet: "{{ azure_resgrp }}snet"
