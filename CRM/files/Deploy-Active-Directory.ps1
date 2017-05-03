@@ -15,7 +15,7 @@ Install-ADDSForest `
 -ForestMode "Win2012R2" `
 -InstallDns:$true `
 -LogPath "C:\Windows\NTDS" `
--NoRebootOnCompletion:$false `
+#-NoRebootOnCompletion:$false `
 -SysvolPath "C:\Windows\SYSVOL" `
 -Force:$true `
 -SafeModeAdministratorPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)
