@@ -1,0 +1,36 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Install AD features
+      win_feature: 
+        name: AD-domain-services
+        state: present
+        include_management_tools: True
+        restart: True
+
+    - name: Make a forest
+      win_shell: Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath "C:\Windows\NTDS" -DomainMode "Win2012R2" -DomainName "tscrm.local" -DomainNetBIOSName "TSCRM" -ForestMode "Win2012R2" -InstallDns:$true -LogPath "C:\Windows\NTDS" -SysvolPath "C:\Windows\SYSVOL" -Force:$true -SafeModeAdministratorPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)
+ 
+    - name: Make a domain controller
+      win_domain_controller:
+        dns_domain_name: tscrm.local
+        domain_admin_user: crm
+        domain_admin_password: SpaceGhost!!1
+        safe_mode_password: SpaceGhost!!1
+        state: domain_controller
+      register: update_result
+
+    - name: reboot if needed
+      win_reboot:
+      when: update_result.reboot_required
+
+      -name: Add user to DC
+      win_shell: New-ADUser -Name "CRM Admin" -GivenName "CRM" -Surname "Admin"  -SamAccountName "crm.admin" -UserPrincipalName "crm.admin@TSCRM.local"  -AccountPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)  -PasswordNeverExpires:$true  -PassThru | Enable-ADAccount
+
+      -name: Add user to group
+      win_shell: Add-ADGroupMember -Identity "Performance Log Users" -Member "crm.admin"
+
+      -name: Add OU
+      win_shell: NEW-ADOrganizationalUnit "CRM"
