@@ -19,8 +19,8 @@
         src: crm2012.xml
         dest: C:\Windows\Temp\crm2012.xml
 
-  #  - name: Install and configure CRM
-  #    win_command: c:\Windows\Temp\Install-CRM.bat
-  #
-  #  - name: Reboot, because it is Windows
-  #    win_reboot:
+    - name: Install and configure CRM
+      win_command: c:\Windows\Temp\Install-CRM.bat
+  
+    - name: Reboot, because it is Windows
+      win_reboot:

@@ -4,7 +4,8 @@
 
 # Add domain controller and promote
 Install-ADDSDomainController `
--InstallDns `
+-NoGlobalCatalog:$false `
+-InstallDns:$true `
 -DomainName "tscrm.local" `
 -Force:$true `
 -Confirm:$false `
