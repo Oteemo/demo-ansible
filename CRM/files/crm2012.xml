@@ -13,16 +13,16 @@
 <WebsiteUrl create="true" port="5555"> </WebsiteUrl>
 <InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
 <CrmServiceAccount type="DomainUser">
-  <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+  <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
 </CrmServiceAccount>
 <SandboxServiceAccount type="DomainUser">
-  <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+  <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
 </SandboxServiceAccount>
 <DeploymentServiceAccount type="DomainUser">
-  <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+  <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
 </DeploymentServiceAccount>
 <AsyncServiceAccount type="DomainUser">
-  <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+  <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
 </AsyncServiceAccount>
 <SQM optin="true"/>
 <mu option="true"/>
