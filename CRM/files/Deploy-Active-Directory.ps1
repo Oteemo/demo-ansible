@@ -10,8 +10,8 @@ Install-ADDSForest `
 -CreateDnsDelegation:$false `
 -DatabasePath "C:\Windows\NTDS" `
 -DomainMode "Win2012R2" `
--DomainName "TS.local" `
--DomainNetbiosName "TS" `
+-DomainName "TSRM.local" `
+-DomainNetbiosName "TSCRM" `
 -ForestMode "Win2012R2" `
 -InstallDns:$true `
 -LogPath "C:\Windows\NTDS" `
@@ -21,11 +21,11 @@ Install-ADDSForest `
 -SafeModeAdministratorPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)
 
 # Add domain controller and promote
-Install-ADDSDomainController -InstallDns -DomainName "TS.local" -Force:$true
+Install-ADDSDomainController -InstallDns -DomainName "TSCRM.local" -Force:$true
 
 # Add user
 New-ADUser -Name "CRM Admin" -GivenName "CRM" -Surname "Admin" `
--SamAccountName "crm.admin" -UserPrincipalName "crm.admin@TS.local" `
+-SamAccountName "crm.admin" -UserPrincipalName "crm.admin@TSCRM.local" `
 -AccountPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force) `
 -PasswordNeverExpires:$true `
 -PassThru | Enable-ADAccount

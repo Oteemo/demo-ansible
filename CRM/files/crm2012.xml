@@ -9,7 +9,7 @@
 <basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>
 <Organization>Trade Station</Organization>
 <OrganizationUniqueName>TradeStationOrganizationUniqueName</OrganizationUniqueName>
-<OU>OU=CRM,DC=TS,DC=local</OU>
+<OU>OU=CRM,DC=TSCRM,DC=local</OU>
 <WebsiteUrl create="true" port="5555"> </WebsiteUrl>
 <InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
 <CrmServiceAccount type="DomainUser">
