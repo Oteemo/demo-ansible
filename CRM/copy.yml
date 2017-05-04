@@ -1,0 +1,37 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Copy powershell IIS
+      win_copy:
+        src: Deploy-IIS.ps1
+        dest: C:\Windows\Temp\Deploy-IIS.ps1
+
+    - name: Copy powershell AD
+      win_copy:
+        src: Deploy-Active-Directory.ps1
+        dest: C:\Windows\Temp\Deploy-Active-Directory.ps1
+
+  tasks:
+    - name: Download CRM 2013 exe
+      win_get_url:
+        url: https://download.microsoft.com/download/6/A/B/6AB1209C-8091-4BFA-B7B5-D4FFA454CA48/CRM2013-Server-ENU-amd64.exe
+        dest: C:\Windows\Temp\CRM2013-Server-ENU-amd64.exe
+        force: no
+
+    - name: Copy batch for CRM install
+      win_copy:
+        src: Install-CRM.bat
+        dest: C:\Windows\Temp\Install-CRM.bat
+
+    - name: Copy CRM config xml
+      win_copy:
+        src: crm2012.xml
+        dest: C:\Windows\Temp\crm2012.xml
+
+    - name: Copy powershell report server
+      win_copy:
+        src: Deploy-ReportServer.ps1
+        dest: C:\Windows\Temp\Deploy-ReportServer.ps1
+
