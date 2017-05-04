@@ -10,8 +10,8 @@ Install-ADDSForest `
 -CreateDnsDelegation:$false `
 -DatabasePath "C:\Windows\NTDS" `
 -DomainMode "Win2012R2" `
--DomainName "TSCRM.local" `
-#-DomainNetbiosName "TSCRM" `
+-DomainName "tscrm.local" `
+-DomainNetBIOSName "TSCRM" `
 -ForestMode "Win2012R2" `
 -InstallDns:$true `
 -LogPath "C:\Windows\NTDS" `
