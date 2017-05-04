@@ -11,7 +11,6 @@
       #- name: Configure report server
       #win_shell: c:\Windows\Temp\Deploy-ReportServer.ps1
 
-      #- name: Reboot
-    - name: Reboot, because it is Windows
+      #- name: Reboot, because it is Windows
       #win_reboot:
-          #when: update_result.reboot_required
+      #when: update_result.reboot_required
