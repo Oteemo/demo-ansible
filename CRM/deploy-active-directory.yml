@@ -3,7 +3,7 @@
   gather_facts: no
 
   tasks:
-    - name: Copy powershell script to host
+    - name: Copy powershell AD deploy
       win_copy:
         src: Deploy-Active-Directory.ps1
         dest: C:\Windows\Temp\Deploy-Active-Directory.ps1
@@ -11,5 +11,21 @@
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Deploy-Active-Directory.ps1
 
-    - name: Reboote
+    - name: Copy powershell AD configure
+      win_copy:
+        src: Deploy-Active-Directory.ps1
+        dest: C:\Windows\Temp\Configure-Active-Directory.ps1
+
+    - name: Install and configure Active Directory
+      win_shell: c:\Windows\Temp\Configure-Active-Directory.ps1
+
+    - name: Reboot
       win_reboot:
+
+    - name: Copy powershell AD add
+      win_copy:
+        src: Deploy-Active-Directory.ps1
+        dest: C:\Windows\Temp\Add-Active-Directory.ps1
+
+    - name: Install and configure Active Directory
+      win_shell: c:\Windows\Temp\Add-Active-Directory.ps1
