@@ -1,6 +1,5 @@
 <CRMSetup>
   <Server>
-    <Patch update="false"></Patch>
     <LicenseKey>CQWW3-TNXBF-HRQWC-CVTW9-M968H</LicenseKey>
     <SqlServer>tscrm</SqlServer>
     <Database create="true"/>
