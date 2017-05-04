@@ -8,5 +8,8 @@
         src: Deploy-ReportServer.ps1
         dest: C:\Windows\Temp\Deploy-ReportServer.ps1
 
-    - name: Configure report server
-      win_shell: c:\Windows\Temp\Deploy-ReportServer.ps1
+      #- name: Configure report server
+      #win_shell: c:\Windows\Temp\Deploy-ReportServer.ps1
+
+      #- name: Reboot
+      #win_reboot:
