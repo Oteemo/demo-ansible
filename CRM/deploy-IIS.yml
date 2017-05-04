@@ -8,9 +8,9 @@
         src: Deploy-IIS.ps1
         dest: C:\Windows\Temp\Deploy-IIS.ps1
 
-    - name: Install and configure Active Directory
-      win_shell: c:\Windows\Temp\Deploy-IIS.ps1
-
     - name: Reboot, because it is Windows
       win_reboot:
       ignore_errors: true
+
+    - name: Install and configure Active Directory
+      win_shell: c:\Windows\Temp\Deploy-IIS.ps1
