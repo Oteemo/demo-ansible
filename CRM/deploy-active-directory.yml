@@ -12,7 +12,7 @@
       win_shell: c:\Windows\Temp\Deploy-Active-Directory.ps1
 
     - name: Reboot
-      win_shell: shutdown /r /t 5
+      win_shell: shutdown /a /t 5
 
     - name: Copy powershell AD configure
       win_copy:
@@ -23,7 +23,7 @@
       win_shell: c:\Windows\Temp\Configure-Active-Directory.ps1
 
     - name: Reboot
-      win_command: shutdown /r /t 5
+      win_command: shutdown /a /t 5
 
     - name: Copy powershell AD add users/ou
       win_copy:
