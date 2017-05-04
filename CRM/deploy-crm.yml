@@ -23,8 +23,8 @@
       win_shell: c:\Windows\Temp\Install-CRM.bat
       args: 
         executable: cmd
-      register: update_result
+      #register: update_result
 
-    - name: Reboot, because it is Windows
-      win_reboot:
-      when: update_result.reboot_required
+      #- name: Reboot, because it is Windows
+      #win_reboot:
+      #when: update_result.reboot_required

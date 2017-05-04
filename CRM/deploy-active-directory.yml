@@ -10,11 +10,11 @@
 
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Deploy-Active-Directory.ps1
-      register: update_result
+      #register: update_result
 
-    - name: Reboot
-      win_reboot:
-      when: update_result.reboot_required
+      #- name: Reboot
+      #win_reboot:
+      #when: update_result.reboot_required
 
     - name: Copy powershell AD configure
       win_copy:
@@ -23,11 +23,11 @@
 
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Configure-Active-Directory.ps1
-      register: update_result
+      #register: update_result
  
-    - name: Reboot
-      win_reboot:
-      when: update_result.reboot_required
+      #- name: Reboot
+      #win_reboot:
+      #when: update_result.reboot_required
 
     - name: Copy powershell AD add users/ou
       win_copy:
@@ -36,8 +36,8 @@
 
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Add-Active-Directory.ps1
-      register: update_result
+      #register: update_result
 
-    - name: Reboot
-      win_reboot:
-      when: update_result.reboot_required
+      #- name: Reboot
+      #win_reboot:
+      #when: update_result.reboot_required
