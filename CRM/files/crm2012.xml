@@ -1,33 +1,33 @@
 <CRMSetup>
   <Server>
     <Patch update="true"></Patch>
-      <LicenseKey>CQWW3-TNXBF-HRQWC-CVTW9-M968H</LicenseKey>
-      <SqlServer>tscrm</SqlServer>
-      <Database create="true"/>
-      <Reporting URL="http://tscrm/ReportServer"/>
-      <OrganizationCollation>Latin1_General_CI_AI</OrganizationCollation>
-      <basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>
-      <Organization>Trade Station</Organization>
-      <OrganizationUniqueName>TradeStationOrganizationUniqueName>
-      <OU>OU=CRM,DC=TS,DC=local</OU>
-      <WebsiteUrl create="true" port="5555"> </WebsiteUrl>
-      <InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
-      <CrmServiceAccount type="DomainUser">
-        <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
-      </CrmServiceAccount>
-      <SandboxServiceAccount type="DomainUser">
-        <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
-      </SandboxServiceAccount>
-      <DeploymentServiceAccount type="DomainUser">
-        <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
-      </DeploymentServiceAccount>
-      <AsyncServiceAccount type="DomainUser">
-        <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
-      </AsyncServiceAccount>
-      <SQM optin="true"/>
-      <mu option="true"/>
-      <Email>
-        <IncomingExchangeServer name="tscrm"/>
-      </Email>
+    <LicenseKey>CQWW3-TNXBF-HRQWC-CVTW9-M968H</LicenseKey>
+    <SqlServer>tscrm</SqlServer>
+    <Database create="true"/>
+    <Reporting URL="http://tscrm/ReportServer"/>
+    <OrganizationCollation>Latin1_General_CI_AI</OrganizationCollation>
+    <basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>
+    <Organization>Trade Station</Organization>
+    <OrganizationUniqueName>TradeStationOrganizationUniqueName>
+    <OU>OU=CRM,DC=TS,DC=local</OU>
+    <WebsiteUrl create="true" port="5555"> </WebsiteUrl>
+    <InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
+    <CrmServiceAccount type="DomainUser">
+      <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+    </CrmServiceAccount>
+    <SandboxServiceAccount type="DomainUser">
+      <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+    </SandboxServiceAccount>
+    <DeploymentServiceAccount type="DomainUser">
+      <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+    </DeploymentServiceAccount>
+    <AsyncServiceAccount type="DomainUser">
+      <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
+    </AsyncServiceAccount>
+    <SQM optin="true"/>
+    <mu option="true"/>
+    <Email>
+      <IncomingExchangeServer name="tscrm"/>
+    </Email>
   </Server>
 </CRMSetup>
