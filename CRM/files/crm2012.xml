@@ -8,17 +8,17 @@
 <OrganizationCollation>Latin1_General_CI_AI</OrganizationCollation>
 <basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>
 <Organization>Trade Station</Organization>
-<OrganizationUniqueName>TradeStationOrganizationUniqueName>
+<OrganizationUniqueName>TradeStationOrganizationUniqueName</OrganizationUniqueName>
 <OU>OU=CRM,DC=TS,DC=local</OU>
 <WebsiteUrl create="true" port="5555"> </WebsiteUrl>
 <InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
 <CrmServiceAccount type="DomainUser">
   <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
 </CrmServiceAccount>
-  <SandboxServiceAccount type="DomainUser">
+<SandboxServiceAccount type="DomainUser">
   <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
 </SandboxServiceAccount>
-  <DeploymentServiceAccount type="DomainUser">
+<DeploymentServiceAccount type="DomainUser">
   <ServiceAccountLogin>TS\crm.admin</ServiceAccountLogin>
 </DeploymentServiceAccount>
 <AsyncServiceAccount type="DomainUser">
@@ -27,7 +27,7 @@
 <SQM optin="true"/>
 <mu option="true"/>
 <Email>
-<IncomingExchangeServer name="tscrm"/>
+  <IncomingExchangeServer name="tscrm"/>
 </Email>
 </Server>
 </CRMSetup>
