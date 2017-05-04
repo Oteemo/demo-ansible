@@ -11,6 +11,9 @@
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Deploy-Active-Directory.ps1
 
+    - name: Reboot
+      win_command: shutdown -r now
+
     - name: Copy powershell AD configure
       win_copy:
         src: Configure-Active-Directory.ps1
@@ -18,6 +21,9 @@
 
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Configure-Active-Directory.ps1
+
+    - name: Reboot
+      win_command: shutdown -r now
 
     - name: Copy powershell AD add users/ou
       win_copy:
