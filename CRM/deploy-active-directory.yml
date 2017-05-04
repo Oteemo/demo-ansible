@@ -11,9 +11,10 @@
     - name: Install and configure Active Directory
       win_shell: c:\Windows\Temp\Deploy-Active-Directory.ps1
 
-      # Looks like reboots w/o
-      # - name: Reboot
-      #win_reboot:
+    # Looks like reboots w/o
+    - name: Reboot
+      win_reboot:
+      ignore_errors: true
 
     - name: Copy powershell AD configure
       win_copy:
@@ -25,6 +26,7 @@
 
     - name: Reboot
       win_reboot:
+      ignore_errors: true
 
     - name: Copy powershell AD add users/ou
       win_copy:
@@ -36,3 +38,4 @@
 
     - name: Reboot
       win_reboot:
+      ignore_errors: true

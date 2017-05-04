@@ -18,7 +18,3 @@ Install-ADDSForest `
 -SysvolPath "C:\Windows\SYSVOL" `
 -Force:$true `
 -SafeModeAdministratorPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)
-
-# Remove this and reboot in ansible instead
-# -NoRebootOnCompletion:$false `
-

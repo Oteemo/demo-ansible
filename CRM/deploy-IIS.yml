@@ -13,3 +13,4 @@
 
     - name: Reboot, because it is Windows
       win_reboot:
+      ignore_errors: true
