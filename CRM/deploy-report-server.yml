@@ -5,10 +5,10 @@
   tasks:
     - name: Start service as local user
       win_service:
-          name: MSSQLServerOLAPService
-          state: started
-          usermame: TSCRM\crm
-          password: 'SpaceGhost!!1'
+        name: MSSQLServerOLAPService
+        state: started
+        usermame: 'TSCRM\crm'
+        password: 'SpaceGhost!!1'
 
     - name: copy file
       win_copy:
