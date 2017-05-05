@@ -3,11 +3,8 @@
   gather_facts: no
 
   tasks:
-    - name: Install AD features
+    - name: Install IIS features
       win_feature: 
         name: Application-Server,AS-Web-Support,AS-HTTP-Activation,AS-NET-Framework,Web-Server,Web-Mgmt-Tools,Web-Mgmt-Service
-        include_management_tools: true
         state: present
         restart: true
-
-    - name: 

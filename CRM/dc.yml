@@ -13,7 +13,7 @@
     - name: Make a domain controller
       win_domain_controller:
         dns_domain_name: tscrm.local
-        domain_admin_user: crm
+        domain_admin_user: crm@tscrm.local
         domain_admin_password: SpaceGhost!!1
         safe_mode_password: SpaceGhost!!1
         state: domain_controller
