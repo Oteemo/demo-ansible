@@ -5,7 +5,7 @@ $server = $env:COMPUTERNAME
 $HTTPport = 80 # change the value if you used a different port for the private HTTP endpoint when the VM was created.
 
 ## Set PowerShell execution policy to be able to run scripts
-Set-ExecutionPolicy RemoteSigned -Force
+#Set-ExecutionPolicy RemoteSigned -Force
 
 ## Utility method for verifying an operation's result
 function CheckResult
@@ -76,4 +76,4 @@ $r = $RSObject.ReserveURL('ReportManager',"http://+:$HTTPport",1033)
 CheckResult $r "ReserveURL for ReportManager port $HTTPport"
 
 ## Open Firewall port for $HTTPport
-New-NetFirewallRule -DisplayName “Report Server” -Direction Inbound –Protocol TCP –LocalPort $HTTPport
+New-NetFirewallRule -DisplayName "Report Server" -Direction Inbound –Protocol TCP –LocalPort $HTTPport
