@@ -20,7 +20,7 @@
         dest: C:\Windows\Temp\crm2012.xml
 
     - name: Unpack the CRM executable
-      win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet /passive /log:\Windows\Temp\crm-unpack.log /extract:\Windows\Temp\CMR-2013
+      win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet /passive /extract:\Windows\Temp\CRM-2013
 
       #- name: Install and configure CRM
       #win_shell: c:\Windows\Temp\Install-CRM.bat

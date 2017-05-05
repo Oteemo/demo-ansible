@@ -10,14 +10,5 @@
         username: TSCRM\crm
         password: SpaceGhost!!1
 
-    - name: copy file
-      win_copy:
-        src: Deploy-ReportServer.ps1
-        dest: C:\Windows\Temp\Deploy-ReportServer.ps1
-
-      #- name: Configure report server
-      #win_shell: c:\Windows\Temp\Deploy-ReportServer.ps1
-
-      #- name: Reboot, because it is Windows
-      #win_reboot:
-      #when: update_result.reboot_required
+    - name: reboot
+      win_reboot:
