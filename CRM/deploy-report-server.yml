@@ -3,23 +3,20 @@
   gather_facts: no
 
   tasks:
-    - name: Start service as local user
+    - name: Start MSSQLServerOLAPService
       win_service:
         name: MSSQLServerOLAPService
-        state: restarted
+        state: started
         username: TSCRM\crm
         password: SpaceGhost!!1
 
-    - name: stop service as local user
+    - name: stop MSSQLServerOLAPService
       win_service:
         name: MSSQLServerOLAPService
         state: stopped
 
-    - name: restart service as local user
-      win_service:
-        name: MSSQLServerOLAPService
-        state: started
-        username: NT Service\ReportServer
+    - name: Reboot so MSSQLServerOLAPService started as default user
+      win_reboot:
 
     - name: Copy file to setup report server
       win_copy:
