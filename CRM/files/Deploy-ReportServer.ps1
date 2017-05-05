@@ -76,4 +76,4 @@ $r = $RSObject.ReserveURL('ReportManager',"http://+:$HTTPport",1033)
 CheckResult $r "ReserveURL for ReportManager port $HTTPport"
 
 ## Open Firewall port for $HTTPport
-New-NetFirewallRule -DisplayName “Report Server (TCP on port $HTTPport)” -Direction Inbound –Protocol TCP –LocalPort $HTTPport
+New-NetFirewallRule -DisplayName “Report Server” -Direction Inbound –Protocol TCP –LocalPort $HTTPport
