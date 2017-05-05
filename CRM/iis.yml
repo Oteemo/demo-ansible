@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Install AD features
+      win_feature: 
+        name: Application-Server,AS-Web-Support,AS-HTTP-Activation,AS-NET-Framework,Web-Server,Web-Mgmt-Tools,Web-Mgmt-Service
+        state: present
+        restart: true
+
+    - name: 
