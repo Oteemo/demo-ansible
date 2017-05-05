@@ -34,11 +34,10 @@
       win_reboot:
       when: update_results.reboot_required
 
-    - name: Add user to DC
-      win_shell: New-ADUser -Name "CRM Admin" -GivenName "CRM" -Surname "Admin"  -SamAccountName "crm.admin" -UserPrincipalName "crm.admin@TSCRM.local"  -AccountPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)  -PasswordNeverExpires:$true  -PassThru | Enable-ADAccount
+    - name: Copy file to add user and OU to AD
+      win_copy:
+          src: active-directory-add.ps1
+          dest: C:\Windows\Temp\ad-add.ps1
       
-    - name: Add user to group
-      win_shell: Add-ADGroupMember -Identity "Performance Log Users" -Member "crm.admin"
-      
-    - name: Add OU
-      win_shell: NEW-ADOrganizationalUnit "CRM"
+    - name: Run PS1 script to add user and OU
+      win_shell: C:\Windows\Temp\ad-add.ps1
