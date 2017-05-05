@@ -10,14 +10,8 @@
         include_management_tools: true
         restart: true
 
-    - name: Make a domain controller
-      win_domain_controller:
-        dns_domain_name: tscrm.local
-        domain_admin_user: crm
-        domain_admin_password: SpaceGhost!!1
-        safe_mode_password: SpaceGhost!!1
-        state: domain_controller
-        log_path: c:\ansible_win_domain_controller.txt
+    - name: Make a forest
+      win_shell: Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath "C:\Windows\NTDS" -DomainMode "Win2012R2" -DomainName "tscrm.local" -DomainNetBIOSName "TSCRM" -ForestMode "Win2012R2" -InstallDns:$true -LogPath "C:\Windows\NTDS" -SysvolPath "C:\Windows\SYSVOL" -Force:$true -SafeModeAdministratorPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)
       register: update_result
 
     - name: reboot if needed
