@@ -14,17 +14,29 @@
 <InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
 <CrmServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
 </CrmServiceAccount>
 <SandboxServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
 </SandboxServiceAccount>
 <DeploymentServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
 </DeploymentServiceAccount>
 <AsyncServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
 </AsyncServiceAccount>
-<SQM optin="true"/>
+<VSSWriterServiceAccount type="DomainUser"> 
+  <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+</VSSWriterServiceAccount>
+<MonitoringServiceAccount type="DomainUser">
+  <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+</MonitoringServiceAccount>
+<SQM optin="false"/>
 <mu option="true"/>
 <Email>
   <IncomingExchangeServer name="gjpcrm"/>
