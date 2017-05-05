@@ -16,8 +16,8 @@
 
     - name: Copy config script to host
       win_copy:
-        src: crm2012.xml
-        dest: C:\Windows\Temp\crm2012.xml
+        src: crm2013.xml
+        dest: C:\Windows\Temp\crm2013.xml
 
     - name: Unpack the CRM executable
       win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet  /extract:\Windows\Temp\CRM-2013
