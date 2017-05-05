@@ -14,27 +14,27 @@
 <InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
 <CrmServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
-  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
 </CrmServiceAccount>
 <SandboxServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
-  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
 </SandboxServiceAccount>
 <DeploymentServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
-  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
 </DeploymentServiceAccount>
 <AsyncServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
-  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
 </AsyncServiceAccount>
 <VSSWriterServiceAccount type="DomainUser"> 
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
-  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
 </VSSWriterServiceAccount>
 <MonitoringServiceAccount type="DomainUser">
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
-  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountLogin>
+  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
 </MonitoringServiceAccount>
 <SQM optin="false"/>
 <mu option="true"/>
