@@ -8,7 +8,7 @@
           name: MSSQLServerOLAPService
           state: started
           usermame: TSCRM\crm
-          password: SpaceGhost!!1
+          password: 'SpaceGhost!!1'
 
     - name: copy file
       win_copy:
