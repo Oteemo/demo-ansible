@@ -12,3 +12,11 @@
 
     - name: reboot
       win_reboot:
+
+    - name: Copy file to setup report server
+      win_copy:
+        src: Deploy-ReportServer.ps1
+        dest: C:\Windows\Temp\Deploy-ReportServer.ps1
+
+    - name: Run script to setup report server
+      win_shell: C:\Windows\Temp\Deploy-ReportServer.ps1
