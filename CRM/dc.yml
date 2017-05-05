@@ -22,15 +22,15 @@
         state: domain_controller
       register: update_result
 
-    - name: reboot if needed
-      win_reboot:
-      when: update_result.reboot_required
-
-      -name: Add user to DC
-      win_shell: New-ADUser -Name "CRM Admin" -GivenName "CRM" -Surname "Admin"  -SamAccountName "crm.admin" -UserPrincipalName "crm.admin@TSCRM.local"  -AccountPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)  -PasswordNeverExpires:$true  -PassThru | Enable-ADAccount
-
-      -name: Add user to group
-      win_shell: Add-ADGroupMember -Identity "Performance Log Users" -Member "crm.admin"
-
-      -name: Add OU
-      win_shell: NEW-ADOrganizationalUnit "CRM"
+      #- name: reboot if needed
+      #win_reboot:
+      #when: update_result.reboot_required
+      #
+      #-name: Add user to DC
+      #win_shell: New-ADUser -Name "CRM Admin" -GivenName "CRM" -Surname "Admin"  -SamAccountName "crm.admin" -UserPrincipalName "crm.admin@TSCRM.local"  -AccountPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)  -PasswordNeverExpires:$true  -PassThru | Enable-ADAccount
+      #
+      #-name: Add user to group
+      #win_shell: Add-ADGroupMember -Identity "Performance Log Users" -Member "crm.admin"
+      #
+      #-name: Add OU
+      #win_shell: NEW-ADOrganizationalUnit "CRM"
