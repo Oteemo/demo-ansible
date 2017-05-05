@@ -7,7 +7,7 @@
       win_service:
         name: MSSQLServerOLAPService
         state: started
-        username: TSCRM\crm
+        username: TSCRM\crm.admin
         password: SpaceGhost!!1
 
     - name: Copy file to setup report server
