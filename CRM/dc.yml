@@ -23,7 +23,7 @@
       win_shell: NEW-ADOrganizationalUnit "CRM"
 
     - name: check domain exists
-      win_domian:
+      win_domain:
         dns_domain_name: tscrm.local
         safe_mode_password: SpaceGhost!!1
       register: update_results
