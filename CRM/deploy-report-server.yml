@@ -10,9 +10,6 @@
         username: TSCRM\crm
         password: SpaceGhost!!1
 
-    - name: reboot
-      win_reboot:
-
     - name: Copy file to setup report server
       win_copy:
         src: Deploy-ReportServer.ps1

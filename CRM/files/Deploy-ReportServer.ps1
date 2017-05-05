@@ -22,7 +22,7 @@ $dbName='ReportServer'
 
 ## Register for MSReportServer_ConfigurationSetting
 ## Change the version portion of the path to "v11" to use the script for SQL Server 2012
-$RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v12\Admin"
+$RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespace "root\Microsoft\SqlServer\ReportServer\RS_MSSQLSERVER\v11\Admin"
 
 ## Report Server Configuration Steps
 
