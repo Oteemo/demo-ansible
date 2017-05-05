@@ -14,8 +14,6 @@
       win_service:
         name: MSSQLServerOLAPService
         state: stopped
-        username: TSCRM\crm.admin
-        password: SpaceGhost!!1
 
     - name: restart service as local user
       win_service:
