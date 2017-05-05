@@ -3,7 +3,14 @@
   gather_facts: no
 
   tasks:
-    - name: Copy powershell script to host
+    - name: Start service as local user
+      win_service:
+          name: MSSQLServerOLAPService
+          state: started
+          usermame: TSCRM\crm
+          password: SpaceGhost!!1
+
+    - name: copy file
       win_copy:
         src: Deploy-ReportServer.ps1
         dest: C:\Windows\Temp\Deploy-ReportServer.ps1
