@@ -24,9 +24,6 @@
       win_reboot:
       when: update_results.reboot_required
 
-      #- name: Make a forest
-      #win_shell: Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath "C:\Windows\NTDS" -DomainMode "Win2012R2" -DomainName "tscrm.local" -DomainNetBIOSName "TSCRM" -ForestMode "Win2012R2" -InstallDns:$true -LogPath "C:\Windows\NTDS" -SysvolPath "C:\Windows\SYSVOL" -Force:$true -SafeModeAdministratorPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)
-
     - name: Add user to DC
       win_shell: New-ADUser -Name "CRM Admin" -GivenName "CRM" -Surname "Admin"  -SamAccountName "crm.admin" -UserPrincipalName "crm.admin@TSCRM.local"  -AccountPassword (convertto-securestring "SpaceGhost!!1" -asplaintext -force)  -PasswordNeverExpires:$true  -PassThru | Enable-ADAccount
       
