@@ -6,20 +6,20 @@
     - name: Start service as local user
       win_service:
         name: MSSQLServerOLAPService
-        state: started
+        state: restarted
         username: TSCRM\crm.admin
         password: SpaceGhost!!1
 
-    - name: stop service as local user
-      win_service:
-        name: MSSQLServerOLAPService
-        state: stopped
+      #- name: stop service as local user
+      #win_service:
+      #  name: MSSQLServerOLAPService
+      #  state: stopped
 
-    - name: restart service as local user
-      win_service:
-        name: MSSQLServerOLAPService
-        state: started
-        username: NT Service\ReportServer
+      #- name: restart service as local user
+      #win_service:
+      #  name: MSSQLServerOLAPService
+      #  state: started
+      #  username: NT Service\ReportServer
 
     - name: Copy file to setup report server
       win_copy:
