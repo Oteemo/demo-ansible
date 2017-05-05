@@ -2,7 +2,7 @@
 $ErrorActionPreference = "Stop"
 
 $server = $env:COMPUTERNAME
-$HTTPport = 80 # change the value if you used a different port for the private HTTP endpoint when the VM was created.
+$HTTPport = 80 
 
 ## Set PowerShell execution policy to be able to run scripts
 #Set-ExecutionPolicy RemoteSigned -Force
@@ -15,7 +15,6 @@ function CheckResult
     write-error "$actionname failed. Error from WMI: $($wmi_result.Error)"
   }
 }
-
 
 ## ReportServer Database name - this can be changed if needed
 $dbName='ReportServer'
@@ -45,7 +44,7 @@ $script = $r.Script
 
 ## Execute sql script to create the database
 $savedcvd = Get-Location
-Import-Module SQLPS              ## this automatically changes to sqlserver provider
+Import-Module SQLPS
 Invoke-SqlCmd -Query $script
 Set-Location $savedcvd
 
@@ -76,4 +75,4 @@ $r = $RSObject.ReserveURL('ReportManager',"http://+:$HTTPport",1033)
 CheckResult $r "ReserveURL for ReportManager port $HTTPport"
 
 ## Open Firewall port for $HTTPport
-New-NetFirewallRule -DisplayName "Report Server" -Direction Inbound –Protocol TCP –LocalPort $HTTPport
+New-NetFirewallRule -DisplayName "ReportServer" -Direction Inbound -Protocol TCP -LocalPort $HTTPport
