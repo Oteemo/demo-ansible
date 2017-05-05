@@ -19,10 +19,13 @@
         src: crm2012.xml
         dest: C:\Windows\Temp\crm2012.xml
 
-    - name: Install and configure CRM
-      win_shell: c:\Windows\Temp\Install-CRM.bat
-      args: 
-        executable: cmd
+    - name: Unpack the CRM executable
+      win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet /passive /log:\Windows\Temp\crm-unpack.log /extract:\Windows\Temp\CMR-2013
+
+      #- name: Install and configure CRM
+      #win_shell: c:\Windows\Temp\Install-CRM.bat
+      #args: 
+      #  executable: cmd
       #register: update_result
 
       #- name: Reboot, because it is Windows
