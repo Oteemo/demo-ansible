@@ -25,6 +25,13 @@ $RSObject = Get-WmiObject -class "MSReportServer_ConfigurationSetting" -namespac
 
 ## Report Server Configuration Steps
 
+# Set the ServiceAccount and restart
+$builtInServiceAccount = "Builtin\LocalSystem"
+$useBuiltInServiceAccount = $true
+$RSObject.SetWindowsServiceIdentity($useBuiltInServiceAccount, $builtInServiceAccount, "") | out-null
+$serviceName = $RSObject.ServiceName
+Restart-Service -Name $serviceName -Force
+
 ## Setting the web service URL ##
 
 ## SetVirtualDirectory for ReportServer site
