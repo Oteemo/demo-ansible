@@ -2,9 +2,9 @@
 <Server>
 <Patch update="false"></Patch>
 <LicenseKey>CQWW3-TNXBF-HRQWC-CVTW9-M968H</LicenseKey>
-<SqlServer>tradestation</SqlServer>
+<SqlServer>gjpcrm</SqlServer>
 <Database create="true"/>
-<Reporting URL="http://tradestation/ReportServer"/>
+<Reporting URL="http://gjpcrm/ReportServer"/>
 <OrganizationCollation>Latin1_General_CI_AI</OrganizationCollation>
 <basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>
 <Organization>Trade Station</Organization>
@@ -39,7 +39,7 @@
 <SQM optin="false"/>
 <mu option="true"/>
 <Email>
-  <IncomingExchangeServer name="tradestation"/>
+  <IncomingExchangeServer name="gjpcrm"/>
 </Email>
 </Server>
 </CRMSetup>
