@@ -24,8 +24,8 @@
 
     - name: Install and configure CRM
       win_shell: C:\Windows\Temp\Install-CRM.bat
-      args:
-        executable: command
+      #args:
+      #  executable: command
 
       #- name: Reboot, because it is Windows
       #win_reboot:
