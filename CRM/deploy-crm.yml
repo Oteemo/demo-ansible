@@ -9,11 +9,6 @@
         dest: C:\Windows\Temp\CRM2013-Server-ENU-amd64.exe
         force: no
 
-    - name: Copy  script to host
-      win_copy:
-        src: Install-CRM.bat
-        dest: C:\Windows\Temp\Install-CRM.bat
-
     - name: Copy config script to host
       win_copy:
         src: crm2013.xml
@@ -23,7 +18,7 @@
       win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet  /extract:\Windows\Temp\CRM-2013
 
     - name: Install and configure CRM
-      win_command: C:\Windows\Temp\Install-CRM.bat
+      win_shell: C:\Windows\Temp\CRM-2013\SetupServer.exe /Q /L C:\Windows\Temp\CRM2013-install.log /config C:\Windows\Temp\crm2013.xml 
 
       #- name: Reboot, because it is Windows
       #win_reboot:
