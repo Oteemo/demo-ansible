@@ -22,11 +22,10 @@
     - name: Unpack the CRM executable
       win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet  /extract:\Windows\Temp\CRM-2013
 
-      #- name: Install and configure CRM
-      #win_shell: c:\Windows\Temp\Install-CRM.bat
-      #args: 
-      #  executable: cmd
-      #register: update_result
+    - name: Install and configure CRM
+      win_shell: c:\Windows\Temp\Install-CRM.bat
+      args:
+        executable: command
 
       #- name: Reboot, because it is Windows
       #win_reboot:
