@@ -49,7 +49,7 @@ Invoke-SqlCmd -Query $script
 Set-Location $savedcvd
 
 ## GenerateGrantRightsScript 
-$DBUser = "NT Service\ReportServer"
+$DBUser = "NT Service\LocalSystem"
 $r = $RSObject.GenerateDatabaseRightsScript($DBUser,$dbName,$false,$true)
 CheckResult $r "GenerateDatabaseRightsScript"
 $script = $r.Script
