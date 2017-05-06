@@ -42,15 +42,4 @@
   <IncomingExchangeServer name="gjpcrm"/>
 </Email>
 </Server>
-<srsdataconnector>
-<configdbserver>gjpcrm</configdbserver> 
-<autogroupmanagementoff>0</autogroupmanagementoff>
-<instancename>SQLReportServerInstance</instancename>
-<patch update="false" /> 
-<muoptin optin="true" />
-<MonitoringServiceAccount type=”DomainUser”>
-  <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
-  <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
-</MonitoringServiceAccount>
-</srsdataconnector>
 </CRMSetup>
