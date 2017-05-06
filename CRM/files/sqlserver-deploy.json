@@ -154,7 +154,7 @@
           "imageReference": {
             "publisher": "[variables('imagePublisher')]",
             "offer": "[variables('imageOffer')]",
-            "sku": "Enterprise",
+            "sku": "Standard",
             "version": "latest"
           },
           "osDisk": {
