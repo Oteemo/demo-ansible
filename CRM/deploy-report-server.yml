@@ -15,8 +15,8 @@
         name: MSSQLServerOLAPService
         state: stopped
 
-    - name: Reboot so MSSQLServerOLAPService started as default user
-      win_reboot:
+      #- name: Reboot so MSSQLServerOLAPService started as default user
+      #win_reboot:
 
     - name: Copy file to setup report server
       win_copy:
