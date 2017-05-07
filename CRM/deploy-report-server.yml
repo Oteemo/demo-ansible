@@ -2,6 +2,10 @@
 - hosts: all
   gather_facts: no
 
+  vars:
+    crm_domain: TSCRM
+    azure_admin_password: 'SpaceGhost!!1'
+
   tasks:
     - name: Start MSSQLServerOLAPService
       win_service:

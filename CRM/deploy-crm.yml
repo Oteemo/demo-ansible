@@ -11,7 +11,7 @@
 
     - name: Copy config script to host
       win_template:
-        src: crm2013.xml.j2
+        src: crm2013.xml
         dest: C:\Windows\Temp\crm2013.xml
 
     - name: Unpack the CRM executable
