@@ -10,7 +10,7 @@
         force: no
 
     - name: Copy config script to host
-      win_template:
+      win_copy:
         src: crm2013.xml
         dest: C:\Windows\Temp\crm2013.xml
 
