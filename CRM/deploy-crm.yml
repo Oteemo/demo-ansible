@@ -18,4 +18,4 @@
         dest: C:\Windows\Temp\crm2013.xml
 
     - name: Install and configure CRM
-      win_shell: C:\Windows\Temp\CRM-2013\SetupServer.exe /QR /L C:\Windows\Temp\CRM2013-install.log /config C:\Windows\Temp\crm2013.xml 
+      win_shell: C:\Windows\Temp\CRM-2013\SetupServer.exe /Q /L C:\Windows\Temp\CRM2013-install.log /config C:\Windows\Temp\crm2013.xml 
