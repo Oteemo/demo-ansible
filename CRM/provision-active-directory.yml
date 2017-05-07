@@ -40,8 +40,8 @@
       when: update_results.reboot_required
 
     - name: Copy file to add user and OU to AD
-      win_template:
-          src: active-directory-add.ps1.j2
+      win_copy:
+          src: active-directory-add.ps1
           dest: C:\Windows\Temp\create_ad.ps1
       
     - name: Run PS1 script to add user and OU
