@@ -19,6 +19,11 @@
         name: MSSQLServerOLAPService
         state: stopped
 
+    - name: Start MSSQLServerOLAPService
+      win_service:
+        name: MSSQLServerOLAPService
+        state: started
+
       #- name: Reboot so MSSQLServerOLAPService started as default user
       #win_reboot:
 
