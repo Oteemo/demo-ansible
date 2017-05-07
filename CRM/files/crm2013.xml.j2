@@ -1,0 +1,45 @@
+<CRMSetup>
+<Server>
+<Patch update="false"></Patch>
+<LicenseKey>CQWW3-TNXBF-HRQWC-CVTW9-M968H</LicenseKey>
+<SqlServer>'{{ azure_vm_name }}'</SqlServer>
+<Database create="true"/>
+<Reporting URL="http://'{{ azure_vm_name }}'/ReportServer"/>
+<OrganizationCollation>Latin1_General_CI_AI</OrganizationCollation>
+<basecurrency isocurrencycode="USD" currencyname="US Dollar" currencysymbol="$" currencyprecision="2"/>
+<Organization>Trade Station</Organization>
+<OrganizationUniqueName>TradeStationOrganizationUniqueName</OrganizationUniqueName>
+<OU>OU=CRM,DC='{{ crm_domain }}',DC='{{ crm_extension }}'</OU>
+<WebsiteUrl create="true" port="5555"> </WebsiteUrl>
+<InstallDir>c:\Program Files\Microsoft Dynamics CRM</InstallDir>
+<CrmServiceAccount type="DomainUser">
+  <ServiceAccountLogin>'{{ crm_domain }}'\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>'{{ azure_admin_password }}'</ServiceAccountPassword>
+</CrmServiceAccount>
+<SandboxServiceAccount type="DomainUser">
+  <ServiceAccountLogin>'{{ crm_domain }}'\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>'{{ azure_admin_password }}'</ServiceAccountPassword>
+</SandboxServiceAccount>
+<DeploymentServiceAccount type="DomainUser">
+  <ServiceAccountLogin>'{{ crm_domain }}'\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>'{{ azure_admin_password }}'</ServiceAccountPassword>
+</DeploymentServiceAccount>
+<AsyncServiceAccount type="DomainUser">
+  <ServiceAccountLogin>'{{ crm_domain }}'\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>'{{ azure_admin_password }}'</ServiceAccountPassword>
+</AsyncServiceAccount>
+<VSSWriterServiceAccount type="DomainUser"> 
+  <ServiceAccountLogin>'{{ crm_domain }}'\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>'{{ azure_admin_password }}'</ServiceAccountPassword>
+</VSSWriterServiceAccount>
+<MonitoringServiceAccount type="DomainUser">
+  <ServiceAccountLogin>'{{ crm_domain }}'\crm.admin</ServiceAccountLogin>
+  <ServiceAccountPassword>'{{ azure_admin_password }}'</ServiceAccountPassword>
+</MonitoringServiceAccount>
+<SQM option="false"/>
+<mu option="true"/>
+<Email>
+  <IncomingExchangeServer name="'{{ azure_vm_name }}'"/>
+</Email>
+</Server>
+</CRMSetup>

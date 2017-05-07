@@ -1,0 +1,11 @@
+# Add a user
+New-ADUser -Name "CRM Admin" -GivenName "CRM" -Surname "Admin" -SamAccountName "crm.admin" `
+-UserPrincipalName "'crm.admin@{{ crm_domain }}{{ crm_etention }}'" `
+-AccountPassword (convertto-securestring "'{{ azure_admin_password }}'" -asplaintext -force) `
+-PasswordNeverExpires:$true -PassThru | Enable-ADAccount
+
+# Put user in group
+Add-ADGroupMember -Identity "Performance Log Users" -Member "crm.admin"
+
+# Add OU
+NEW-ADOrganizationalUnit "CRM"

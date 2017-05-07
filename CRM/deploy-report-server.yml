@@ -7,8 +7,8 @@
       win_service:
         name: MSSQLServerOLAPService
         state: started
-        username: TSCRM\crm
-        password: SpaceGhost!!1
+        username: '{{ crm_domain }}\crm'
+        password: '{{ azure_admin_password }}'
 
     - name: stop MSSQLServerOLAPService
       win_service:

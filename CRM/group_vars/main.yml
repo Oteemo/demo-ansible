@@ -1,0 +1,12 @@
+---
+# group_vars file for CRM
+azure_location: westus
+azure_resgrp: gpryzby
+azure_vm_name: gjpcrm
+azure_pubip_name: "{{ azure_resgrp}}pip"
+azure_vnet: "{{ azure_resgrp }}vnet"
+azure_snet: "{{ azure_resgrp }}snet"
+azure_admin_username: 'crm'
+azure_admin_password: 'SpaceGhost!!1'
+crm_domain: TSCRM
+crm_extension: local

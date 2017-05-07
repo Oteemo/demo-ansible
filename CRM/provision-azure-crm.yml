@@ -5,16 +5,6 @@
   connection: local
   gather_facts: no
   
-  vars:
-    azure_location: westus
-    azure_resgrp: gpryzby
-    azure_vm_name: gjpcrm
-    azure_pubip_name: "{{ azure_resgrp}}pip"
-    azure_vnet: "{{ azure_resgrp }}vnet"
-    azure_snet: "{{ azure_resgrp }}snet"
-    azure_admin_username: 'crm'
-    azure_admin_password: 'SpaceGhost!!1'
-    
   tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:

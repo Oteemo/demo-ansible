@@ -12,8 +12,8 @@
 
     - name: Make a domain 
       win_domain:
-        dns_domain_name: tscrm.local
-        safe_mode_password: SpaceGhost!!1
+        dns_domain_name: '{{ crm_domain }}.{{ crm_extenstion }}'
+        safe_mode_password: '{{ azure_admin_password }}'
       register: update_results
 
     - name: reboot if needed
@@ -22,10 +22,10 @@
 
     - name: Make a domain controller
       win_domain_controller:
-        dns_domain_name: tscrm.local
-        domain_admin_user: crm@tscrm.local
-        domain_admin_password: SpaceGhost!!1
-        safe_mode_password: SpaceGhost!!1
+        dns_domain_name: '{{ crm_domain }}.{{ crm_extenstion }}'
+        domain_admin_user: 'crm@{{ crm_domain }}.{{ crm_extenstion }}'
+        domain_admin_password: '{{ azure_admin_password }}'
+        safe_mode_password: '{{ azure_admin_password }}'
         state: domain_controller
         log_path: c:\ansible_win_domain_controller.txt
       register: update_results
@@ -35,9 +35,9 @@
       when: update_results.reboot_required
 
     - name: Copy file to add user and OU to AD
-      win_copy:
-          src: active-directory-add.ps1
-          dest: C:\Windows\Temp\ad-add.ps1
+      win_template:
+          src: active-directory-add.ps1.j2
+          dest: C:\Windows\Temp\create_ad.ps1
       
     - name: Run PS1 script to add user and OU
-      win_shell: C:\Windows\Temp\ad-add.ps1
+      win_shell: C:\Windows\Temp\create_ad.ps1
