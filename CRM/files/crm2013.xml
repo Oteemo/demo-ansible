@@ -36,8 +36,8 @@
   <ServiceAccountLogin>TSCRM\crm.admin</ServiceAccountLogin>
   <ServiceAccountPassword>SpaceGhost!!1</ServiceAccountPassword>
 </MonitoringServiceAccount>
-<SQM option="false"/>
-<mu option="true"/>
+<SQM optin="false"/>
+<mu optin="true"/>
 <Email>
   <IncomingExchangeServer name="gjpcrm"/>
 </Email>
