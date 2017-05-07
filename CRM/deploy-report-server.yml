@@ -7,30 +7,27 @@
     azure_admin_password: 'SpaceGhost!!1'
 
   tasks:
-    - name: Start MSSQLServerOLAPService
+    - name: Start MSSQLServerOLAPService as Admin to fix file permissions
       win_service:
         name: MSSQLServerOLAPService
         state: started
         username: '{{ crm_domain }}\crm'
         password: '{{ azure_admin_password }}'
 
-    - name: stop MSSQLServerOLAPService
+    - name: stop MSSQLServerOLAPService 
       win_service:
         name: MSSQLServerOLAPService
         state: stopped
 
-    - name: Start MSSQLServerOLAPService
+    - name: Start MSSQLServerOLAPService as default user
       win_service:
         name: MSSQLServerOLAPService
         state: started
 
-      #- name: Reboot so MSSQLServerOLAPService started as default user
-      #win_reboot:
-
-    - name: Copy file to setup report server
+    - name: Copy powershell script that will configure Reporting Services
       win_copy:
         src: Deploy-ReportServer.ps1
         dest: C:\Windows\Temp\Deploy-ReportServer.ps1
 
-    - name: Run script to setup report server
+    - name: Run powershell script to setup Reporting services
       win_shell: C:\Windows\Temp\Deploy-ReportServer.ps1

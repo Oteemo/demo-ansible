@@ -8,24 +8,24 @@
     crm_extenstion: local
 
   tasks:
-    - name: Install AD features
+    - name: Install Windows-Features for Active Directory
       win_feature: 
         name: AD-domain-services
         state: present
         include_management_tools: true
         restart: true
 
-    - name: Make a domain 
+    - name: Create a new domain in Active Directory
       win_domain:
         dns_domain_name: '{{ crm_domain }}.{{ crm_extenstion }}'
         safe_mode_password: '{{ azure_admin_password }}'
       register: update_results
 
-    - name: reboot if needed
+    - name: Reboot if needed
       win_reboot:
       when: update_results.reboot_required
 
-    - name: Make a domain controller
+    - name: Make a new domain controller in Active Directory
       win_domain_controller:
         dns_domain_name: '{{ crm_domain }}.{{ crm_extenstion }}'
         domain_admin_user: 'crm@{{ crm_domain }}.{{ crm_extenstion }}'
@@ -35,14 +35,14 @@
         log_path: c:\ansible_win_domain_controller.txt
       register: update_results
 
-    - name: reboot if needed
+    - name: Reboot if needed
       win_reboot:
       when: update_results.reboot_required
 
-    - name: Copy file to add user and OU to AD
+    - name: Copy powershell script to create a user and organizational unit (OU)
       win_copy:
           src: active-directory-add.ps1
           dest: C:\Windows\Temp\create_ad.ps1
       
-    - name: Run PS1 script to add user and OU
+    - name: Run powershell script to create user and OU
       win_shell: C:\Windows\Temp\create_ad.ps1

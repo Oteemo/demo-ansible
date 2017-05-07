@@ -21,7 +21,7 @@
         name: '{{ azure_resgrp }}'
         location: '{{ azure_location }}'
 
-    - name: Create Azure Deploy
+    - name: Deploy an instance in Azure based on a template
       azure_rm_deployment:
         resource_group_name: '{{ azure_resgrp }}'
         parameters:
@@ -43,6 +43,6 @@
         state: present
       register: az_instance
 
-    - name: Public IP
+    - name: Display public IP
       debug:
           var: az_instance.deployment.instances[0].ips[0].public_ip
