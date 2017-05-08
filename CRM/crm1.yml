@@ -21,4 +21,4 @@
     - name: Copy SRSDataConnector xml answer file
       win_copy:
         src: srs-install-config.xml
-        dest: C:\Windows\Temp\CRM-2013\SrsDataConnetor\install-config.xml
+        dest: C:\Windows\Temp\CRM-2013\SrsDataConnector\install-config.xml
