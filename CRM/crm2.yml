@@ -4,7 +4,4 @@
 
   tasks:
     - name: Install and configure CRM
-      win_package: 
-        path: "C:\\Windows\\Temp\\CRM-2013\\SetupServer.exe"
-        productid: "{0C524D55-1409-0060-BD7E-530E52560E52}"
-        arguments: "/Q /config c:\\Windows\\Temp\\crm2013.xml"
+      win_command: "C:\\Windows\\Temp\\CRM-2013\\SetupServer.exe /Q /config c:\\Windows\\Temp\\crm2013.xml"
