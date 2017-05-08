@@ -4,4 +4,4 @@
 
   tasks:
     - name: Install and configure CRM
-      win_command: "C:\\Windows\\Temp\\CRM-2013\\SetupServer.exe /Q /config c:\\Windows\\Temp\\crm2013.xml"
+      win_command: "C:\\Windows\\Temp\\CRM-2013\\SetupServer.exe /Q /config c:\Windows\Temp\crm2013.xml"
