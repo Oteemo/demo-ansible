@@ -1,0 +1,16 @@
+<crmsetup>
+<srsdataconnector>
+<installtype></installtype>
+<configdbserver>gjpcrm</configdbserver>
+<autoupdateconfigdb>1</autoupdateconfigdb>
+<autogroupmanagementoff>0</autogroupmanagementoff>
+<instancename>MSSQLSERVER</instancename>
+<configsku>OnPremise</configsku>
+<webstore enabled="false" configdb="false" />
+<monitoring>
+  <serviceaccountname>TSCRM\crm.admin</serviceaccountname>
+  <serviceaccountpassword>Spaceghost!!1</serviceaccountpassword>
+</monitoring>
+<patch update="false"></patch>
+</srsdataconnector>
+</crmsetup>

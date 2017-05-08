@@ -13,7 +13,12 @@
     - name: Unpack the CRM executable
       win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet  /extract:\Windows\Temp\CRM-2013
 
-    - name: Copy config script to host
+    - name: Copy XML answer file for CRM 2013 install to host
       win_copy:
         src: crm2013.xml
         dest: C:\Windows\Temp\crm2013.xml
+
+    - name: Copy SRSDataConnector xml answer file
+      win_copy:
+        src: srs-install-config.xml
+        dest: C:\Windows\Temp\CRM-2013\SrsDataConnetor\install-config.xml
