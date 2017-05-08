@@ -4,8 +4,8 @@
 
   tasks:
     - name: Install and configure CRM
-      win_msi: 
-        path: C:\Windows\Temp\CRM-2013\Server.msi 
-        creates: yes
-        wait: yes
-        extra_args: /q /config c:\Windows\Temp\crm2013.xml
+      win_package: 
+        path: C:\Windows\Temp\CRM-2013\SetupServer.exe 
+        productid: '{0C524D55-1409-0060-BD7E-530E52560E52}'
+        creates: C:\Windows\Temp\installed-crm
+        arguments: /Q /config c:\Windows\Temp\crm2013.xml
