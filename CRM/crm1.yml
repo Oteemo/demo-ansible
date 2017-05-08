@@ -20,8 +20,7 @@
 
     - name: Wait for the unpack to finish
       wait_for:
-        path: c:\Windows\Temp\CRM-2013
-        state: present
+        path: c:\Windows\Temp\CRM-2013\SetupServer.exe
 
     - name: Copy SRSDataConnector xml answer file
       win_copy:
