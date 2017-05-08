@@ -18,6 +18,11 @@
         src: crm2013.xml
         dest: C:\Windows\Temp\crm2013.xml
 
+    - name: Wait for the unpack to finish
+      wait_for:
+          path: c:\Windows\Temp\CRM-2013
+          state: present
+
     - name: Copy SRSDataConnector xml answer file
       win_copy:
         src: srs-install-config.xml
