@@ -4,4 +4,7 @@
 
   tasks:
     - name: Install and configure CRM
-      win_command: C:\Windows\Temp\CRM-2013\SetupServer.exe /Q /L C:\Windows\Temp\CRM2013-install.log /config C:\Windows\Temp\crm2013.xml 
+      #win_command: C:\Windows\Temp\CRM-2013\SetupServer.exe /Q /L C:\Windows\Temp\CRM2013-install.log /config C:\Windows\Temp\crm2013.xml 
+      win_command: SetupServer.exe /Q /L CRM2013-install.log /config crm2013.xml 
+      args:
+          chdir: C:\Windows\Temp\CRM-2013\
