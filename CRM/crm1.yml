@@ -1,0 +1,18 @@
+---
+- hosts: all
+  gather_facts: no 
+
+  tasks:
+    - name: Download CRM exe from Microsoft
+      win_get_url:
+        url: https://download.microsoft.com/download/6/A/B/6AB1209C-8091-4BFA-B7B5-D4FFA454CA48/CRM2013-Server-ENU-amd64.exe
+        dest: C:\Windows\Temp\CRM2013-Server-ENU-amd64.exe
+        force: no
+
+    - name: Unpack the CRM executable
+      win_shell: c:\Windows\Temp\CRM2013-Server-ENU-amd64.exe /quiet  /extract:\Windows\Temp\CRM-2013
+
+    - name: Copy config script to host
+      win_copy:
+        src: crm2013.xml
+        dest: C:\Windows\Temp\crm2013.xml
