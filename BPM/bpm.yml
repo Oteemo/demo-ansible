@@ -1,5 +1,5 @@
 ---
-- hosts: 54.236.20.145
+- hosts: bpm
   become: True
   become_user: root
   gather_facts: no
