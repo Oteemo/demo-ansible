@@ -54,14 +54,12 @@
         line: umask 077
 
     - name: Reboot the server
-      shell: /sbin/reboot 
+      command: /usr/bin/systemd-run --on-active=10 /usr/bin/systemctl reboot
       async: 0
       poll: 0
 
     - name: Wait for the server to rebooting
-      local_action:
-        wait_for host={{ inventory_hostname }}
-        state=started port=22 timeout=300 delay=20
+      local_action: wait_for host={{ inventory_hostname }} search_regex=OpenSSH port=22 timeout=300 delay=30
 
       #- name: WAS tuning
 
