@@ -16,25 +16,25 @@
         insertbefore: # End of file
         block: |
           # - stack - maximum stack size (KB)
-          "{{ was_user_name }}" soft stack 32768
-          "{{ was_user_name }}" hard stack 32768
+          {{ was_user_name }} soft stack 32768
+          {{ was_user_name }} hard stack 32768
           # - nofile - maximum number of open files
-          "{{ was_user_name }}" soft nofile 65536
-          "{{ was_user_name }}" hard nofile 65536
+          {{ was_user_name }} soft nofile 65536
+          {{ was_user_name }} hard nofile 65536
           # - nproc - maximum number of processes
-          "{{ was_user_name }}" soft nproc 16384
-          "{{ was_user_name }}" hard nproc 16384
+          {{ was_user_name }} soft nproc 16384
+          {{ was_user_name }} hard nproc 16384
           # - fsize - maximum file size
-          "{{ was_user_name }}" soft fsize 6291453
-          "{{ was_user_name }}" hard fsize 6291453
+          {{ was_user_name }} soft fsize 6291453
+          {{ was_user_name }} hard fsize 6291453
 
     - name: If the files exists, set the nproc 
       blockinfile:
         path: "{{ item }}"
         block: |
           # - nproc - maximum number of processes
-          "{{ was_user_name }}" soft nproc 16384
-          "{{ was_user_name }}" hard nproc 16384
+          {{ was_user_name }} soft nproc 16384
+          {{ was_user_name }} hard nproc 16384
         with_items: 
           - /etc/security/limits.d/90-nproc.conf
           - /etc/security/limits.d/20-nproc.conf
@@ -45,8 +45,8 @@
         insertafter: ulimit -n
         block: |
           # - ofile - maximum number of open files
-          "{{ was_user_name }}" soft nofile 65536
-          "{{ was_user_name }}" hard nofile 65536
+          {{ was_user_name }} soft nofile 65536
+          {{ was_user_name }} hard nofile 65536
 
     - name: Set umask 077 in /etc/profild
       lineinfile:
