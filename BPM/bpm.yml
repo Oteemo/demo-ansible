@@ -30,7 +30,7 @@
 
     - name: If the files exists, set the nproc 
       blockinfile:
-        path: "{{ item }}"
+        path: {{ item }}
         block: |
           # - nproc - maximum number of processes
           {{ was_user_name }} soft nproc 16384
