@@ -30,14 +30,14 @@
 
     - name: If the files exists, set the nproc 
       blockinfile:
-        path: "{{ item }}:"
+        path: "{{ item }}"
         block: |
           # - nproc - maximum number of processes
           {{ was_user_name }} soft nproc 16384
           {{ was_user_name }} hard nproc 16384
-        with_items: 
-          - /etc/security/limits.d/90-nproc.conf
-          - /etc/security/limits.d/20-nproc.conf
+      with_items: 
+        - /etc/security/limits.d/90-nproc.conf
+        - /etc/security/limits.d/20-nproc.conf
 
     - name: If the files exists and ulimit -n, set the nofile 
       blockinfile:
