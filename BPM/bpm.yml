@@ -1,5 +1,5 @@
 ---
-- hosts: bpm
+- hosts: tag_Application_bpm
   become: True
   become_user: root
   gather_facts: no
