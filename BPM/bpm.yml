@@ -11,22 +11,22 @@
       #    - name: Install WebSphere Application Server
 
     - name: Set limits for the WAS user
-      blockinfile:
+      lineinfile:
         path: /etc/security/limits.conf
-        insertbefore: # End of file
-        block: |
-          # - stack - maximum stack size (KB)
-          {{ was_user_name }} soft stack 32768
-          {{ was_user_name }} hard stack 32768
-          # - nofile - maximum number of open files
-          {{ was_user_name }} soft nofile 65536
-          {{ was_user_name }} hard nofile 65536
-          # - nproc - maximum number of processes
-          {{ was_user_name }} soft nproc 16384
-          {{ was_user_name }} hard nproc 16384
-          # - fsize - maximum file size
-          {{ was_user_name }} soft fsize 6291453
-          {{ was_user_name }} hard fsize 6291453
+        line: "{{ item }}"
+      with_items: 
+        - # - stack - maximum stack size (KB)
+        - {{ was_user_name }} soft stack 32768
+        - {{ was_user_name }} hard stack 32768
+        - # - nofile - maximum number of open files
+        - {{ was_user_name }} soft nofile 65536
+        - {{ was_user_name }} hard nofile 65536
+        - # - nproc - maximum number of processes
+        - {{ was_user_name }} soft nproc 16384
+        - {{ was_user_name }} hard nproc 16384
+        - # - fsize - maximum file size
+        - {{ was_user_name }} soft fsize 6291453
+        - {{ was_user_name }} hard fsize 6291453
 
     - name: Check if file exists
       stat:
@@ -34,13 +34,14 @@
         register: limit_nproc
 
     - name: If the files exists, set the nproc 
-      blockinfile:
+      lineinfile:
         path: /etc/security/limits.d/20-nproc.conf
-        block: |
-          # - nproc - maximum number of processes
-          {{ was_user_name }} soft nproc 16384
-          {{ was_user_name }} hard nproc 16384
+        line: "{{ item }}"
         when: limit_nproc.stat.exists == True
+      with_items: 
+        - # - nproc - maximum number of processes
+        - {{ was_user_name }} soft nproc 16384
+        - {{ was_user_name }} hard nproc 16384
 
     - name: Check if file exists
       stat:
@@ -48,23 +49,25 @@
         register: limit_nproc
 
     - name: If the files exists, set the nproc 
-      blockinfile:
+      lineinfile:
         path: /etc/security/limits.d/90-nproc.conf
-        block: |
-          # - nproc - maximum number of processes
-          {{ was_user_name }} soft nproc 16384
-          {{ was_user_name }} hard nproc 16384
+        line: "{{ item }}"
         when: limit_nproc.stat.exists == True
+      with_items: 
+        - # - nproc - maximum number of processes
+        - {{ was_user_name }} soft nproc 16384
+        - {{ was_user_name }} hard nproc 16384
 
           
     - name: If the files exists and ulimit -n, set the nofile 
-      blockinfile:
+      lineinfile:
         path: /etc/profile
         insertafter: ulimit -n
-        block: |
-          # - ofile - maximum number of open files
-          {{ was_user_name }} soft nofile 65536
-          {{ was_user_name }} hard nofile 65536
+        line: "{{ item }}"
+      with_items:
+        - # - ofile - maximum number of open files
+        - {{ was_user_name }} soft nofile 65536
+        - {{ was_user_name }} hard nofile 65536
 
     - name: Set umask 077 in /etc/profild
       lineinfile:
@@ -72,13 +75,14 @@
         line: umask 077
 
     - name: WebSphere tuning of sysctl.conf
-      blockinfile:
+      lineinfile:
         path: /usr/lib/sysctl.d/00-system.conf
-        block: |
-          net.core.netdev_max_backlog=3000
-          net.core.somaxconn=3000
-          net.ipv4.tcp_keepalive_intvl=15
-          net.ipv4.tcp_keepalive_probes=5
+        line: "{{ item }}"
+      with_items: 
+        - net.core.netdev_max_backlog=3000
+        - net.core.somaxconn=3000
+        - net.ipv4.tcp_keepalive_intvl=15
+        - net.ipv4.tcp_keepalive_probes=5
 
     - name: Reboot the server
       command: /usr/bin/systemd-run --on-active=10 /usr/bin/systemctl reboot
