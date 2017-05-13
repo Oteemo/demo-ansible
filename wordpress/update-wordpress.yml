@@ -4,7 +4,7 @@
 - hosts: tag_Application_webserver
   become: True
   become_user: root
-  gather_facts: No
+  gather_facts: Yes
 
   tasks:
     - name: Update the packages to the latest
