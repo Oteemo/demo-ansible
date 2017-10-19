@@ -4,7 +4,7 @@
 - hosts: localhost
   connection: local
   gather_facts: no
-  
+
   vars:
     awsregion: us-east-1
     instancesize: t2.micro
@@ -12,8 +12,8 @@
     keypair: ec2-ol-mgt
     amitouse: ami-43745729 # CentOS 7.3
     numberofservers: 1
-    subnettolaunchin: subnet-c7b3549c
-    
+    subnettolaunchin: subnet-43d50b7c
+
   tasks:
       - name: Launch ec2 instance
         ec2:
@@ -31,14 +31,14 @@
              Name: "{{instancename}}"
              Application: webserver
         register: ec2
-             
+
       - name: Wait until port 22 becomes active
         local_action: wait_for host={{ item.public_ip }} port=22 state=started
         with_items: "{{ ec2.instances }}"
-       
+
       - name: Force refresh inventory
         meta: refresh_inventory
 
-      - name: Public IP of instance is 
+      - name: Public IP of instance is
         debug:
           var: ec2.instances[0].public_ip
