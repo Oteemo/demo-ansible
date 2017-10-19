@@ -34,7 +34,7 @@
 
     - name: Add user {{admin_user}}
       user: name="{{admin_user}}" comment="Admin User" group=wheel
-      
+
       #- name: Enable mariadb repo
       #copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo owner=root group=root
 
@@ -92,10 +92,10 @@
 
     # - name: Restart service firewalld
     #   service: name=firewalld state=restarted
-    
+
     - name: Create group {{website_group}}
       group: name="{{website_group}}" state=present
-    
+
     - name: Create user {{website_user}}
       user: name={{website_user}} comment="Website User" password="{{website_password}}" groups={{website_group}},apache append=yes
 
@@ -136,4 +136,4 @@
       get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/usr/local/bin/wp mode=0776 group=wheel
 
     - name: Install and configure the latest version of Wordpress with wp-cli
-      command: chdir=/var/www/html /usr/local/bin/wp core install --url={{website_url}} --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
+      command: chdir=/var/www/html /usr/local/bin/wp core install --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
