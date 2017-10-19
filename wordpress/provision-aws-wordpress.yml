@@ -9,10 +9,10 @@
     awsregion: us-east-1
     instancesize: t2.micro
     instancename: webserver-wp
-    keypair: ec2-ol-mgt
+    keypair: ATX-Tower
     amitouse: ami-43745729 # CentOS 7.3
     numberofservers: 1
-    subnettolaunchin: subnet-43d50b7c
+    subnettolaunchin: subnet-9acbd7c0
 
   tasks:
       - name: Launch ec2 instance
@@ -21,7 +21,7 @@
           instance_type: "{{instancesize}}"
           image: "{{amitouse}}"
           wait: yes
-          group: webserver-sg
+          group: sg-3ae26248
           count: "{{numberofservers}}"
           vpc_subnet_id: "{{subnettolaunchin}}"
           assign_public_ip: yes
