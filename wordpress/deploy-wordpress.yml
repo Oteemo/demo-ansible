@@ -136,4 +136,4 @@
       get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/usr/local/bin/wp mode=0776 group=wheel
 
     - name: Install and configure the latest version of Wordpress with wp-cli
-      command: chdir=/var/www/html /usr/local/bin/wp core install --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
+      command: chdir=/var/www/html /usr/local/bin/wp core install --url={{website_url}} --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
