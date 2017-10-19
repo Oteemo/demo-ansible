@@ -21,7 +21,7 @@
           instance_type: "{{instancesize}}"
           image: "{{amitouse}}"
           wait: yes
-          group: sg-3ae26248
+          group: AWX-Security
           count: "{{numberofservers}}"
           vpc_subnet_id: "{{subnettolaunchin}}"
           assign_public_ip: yes
