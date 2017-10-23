@@ -1,0 +1,12 @@
+wordpress_url: https://wordpress.org/latest.tar.gz
+admin_user: admin
+website_name: MyWebsite # The name for the site
+website_url: www.mywebsite.com
+website_user: likvid
+website_group: likvid
+website_admin_login: wordpressadmin # Wordpress admin user
+website_admin_password: "SuperSecret"
+website_admin_email: "wordpressadmin@domain.com"
+website_password: "SuperSecret"
+dbname: likvid
+dbpassword: "SuperSecretDBPassword"

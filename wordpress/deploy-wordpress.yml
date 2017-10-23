@@ -1,26 +1,18 @@
 # Build a Wordpress install on a RHEL/CentOS staging server
 # Components installed: httpd, php, php-mysql, wp-cli, mysql, mysqld
 
-- hosts: tag_Application_webserver
+- hosts: webservers
   become: True
   become_user: root
-  gather_facts: Yes
+  gather_facts: No
 
-  vars:
-    wordpress_url: https://wordpress.org/latest.tar.gz
-    admin_user: greg
-    website_name: Oteemo
-    website_url: stage.oteemo.com
-    website_user: oteemocom
-    website_group: oteemo
-    website_admin_login: oteemoadmin
-    website_admin_password: "Us34B3tt3rP@$$w0rd!"
-    website_admin_email: "arka@oteemo.com"
-    website_password: "Us34B3tt3rP@$$w0rd!"
-    dbname: oteemo
-    dbpassword: "Us34B3tt3rP@$$w0rd!"
+  pre_tasks:
+    - include_vars: vars/settings.yml
 
   tasks:
+    - name: Update all packages
+      yum: name=* state=latest
+
     - name: Install nano, wget and ntpd
       yum: name="{{item}}" state=present
       with_items:
@@ -35,9 +27,6 @@
     - name: Add user {{admin_user}}
       user: name="{{admin_user}}" comment="Admin User" group=wheel
 
-      #- name: Enable mariadb repo
-      #copy: src=mariadb.repo dest=/etc/yum.repos.d/mariadb.repo owner=root group=root
-
     - name: Install httpd
       yum: name=httpd state=present
 
@@ -49,12 +38,11 @@
         - php-mcrypt
         - php-gd
 
-    - name: Install mariadb
+    - name: Install MariaDB
       yum: name="{{item}}" state=present
       with_items:
         - mariadb-server
-        - mariadb-devel
-          #    - MariaDB-client
+        - mariadb
         - MySQL-python
 
     - name: Start services
@@ -136,4 +124,7 @@
       get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/usr/local/bin/wp mode=0776 group=wheel
 
     - name: Install and configure the latest version of Wordpress with wp-cli
-      command: chdir=/var/www/html /usr/local/bin/wp core install --url={{website_url}} --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
+      command: chdir=/var/www/html wp core install --url={{website_url}} --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
+
+    - name: Install and activate the Divi 2.0 theme
+      command: chdir=/var/www/html wp theme install https://s3.amazonaws.com/arka-sandbox/Divi.zip --activate
