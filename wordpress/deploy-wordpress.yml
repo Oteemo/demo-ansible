@@ -1,10 +1,10 @@
 # Build a Wordpress install on a RHEL/CentOS staging server
 # Components installed: httpd, php, php-mysql, wp-cli, mysql, mysqld
 
-- hosts: webservers
+- hosts: tag_Application_webserver
   become: True
   become_user: root
-  gather_facts: No
+  gather_facts: yes
 
   pre_tasks:
     - include_vars: vars/settings.yml
