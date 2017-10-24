@@ -10,7 +10,7 @@
     wordpress_url: https://wordpress.org/latest.tar.gz
     admin_user: greg
     website_name: Oteemo
-    website_url: stage.oteemo.com
+    website_url: demo.oteemo.com
     website_user: oteemocom
     website_group: oteemo
     website_admin_login: oteemoadmin
@@ -137,3 +137,6 @@
 
     - name: Install and configure the latest version of Wordpress with wp-cli
       command: chdir=/var/www/html /usr/local/bin/wp core install --url={{website_url}} --title={{website_name}} --admin_user={{website_admin_login}} --admin_password='{{website_admin_password}}' --admin_email={{website_admin_email}}
+
+    - name: Install and activate the Divi 2.0 theme
+      command: chdir=/var/www/html wp theme install https://s3.amazonaws.com/arka-sandbox/Divi.zip --activate
