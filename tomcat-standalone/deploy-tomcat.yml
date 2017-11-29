@@ -1,0 +1,9 @@
+---
+# This playbook deploys tomcat.
+
+- hosts: tag_Name_tomcat_ticketmonster
+  become: yes
+
+  roles:
+    - selinux
+    - tomcat
