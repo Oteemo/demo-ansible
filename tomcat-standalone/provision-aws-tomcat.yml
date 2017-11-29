@@ -10,8 +10,8 @@
     instancesize:     t2.micro
     keypair:          ec2-ol-mgt
     amitouse:         ami-43745729 # CentOS 7.3
-    numberofservers:  3
-    subnettolaunchin: subnet-c7b3549c
+    numberofservers:  1
+    subnettolaunchin: subnet-cd44c4a9
 
   tasks:
       - name: Launch ec2 instance
