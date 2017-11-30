@@ -30,10 +30,7 @@
   <!.. ..> that surrounds them.
 -->
 
-  <role rolename=manager-script/>
-  <role rolename=manager-gui/>
-
-  <user username="{{ admin_username }}" password="{{ admin_password }}" roles="manager-gui, manager-script" />
+  <user username="{{ admin_username }}" password="{{ admin_password }}" roles="manager-gui,manager-script" />
 
 <!--
   <role rolename="tomcat"/>
