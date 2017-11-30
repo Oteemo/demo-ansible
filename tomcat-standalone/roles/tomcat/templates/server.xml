@@ -23,6 +23,9 @@
   <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
   <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+  <Listener className="org.apache.catalina.mbeans.JmxRemoteLifecycleListener"
+	rmiRegistryPortPlatform="{{jmx_registry_port}}" rmiServerPortPlatform="{{jmx_server_port}}" />
+
   <GlobalNamingResources>
     <Resource name="UserDatabase" auth="Container"
               type="org.apache.catalina.UserDatabase"
