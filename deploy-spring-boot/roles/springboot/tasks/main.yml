@@ -25,7 +25,7 @@
   command: chsh -s /sbin/nologin springboot
 
 - name: Change ownership of jar
-  file: path=/opt/spring-boot/todo-1.0.0.war owner=springboot group=springboot state=file
+  file: path=/opt/spring-boot/todo-1.0.0.war owner=springboot group=springboot state=file mode: 0500
 
 - name: Create symlink
   file: src=/opt/spring-boot/todo-1.0.0.war path=/etc/init.d/todo-1.0.0 state=link
