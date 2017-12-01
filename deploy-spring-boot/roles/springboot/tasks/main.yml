@@ -16,7 +16,7 @@
 #   copy: content="RUN_ARGS=--spring.profiles.active=ec2" dest=/opt/spring-boot-ec2-demo/spring-boot-ec2-demo.conf
 
 - name: Copy spring boot artifact
-  command: aws s3 cp s3://swf-spring-boot/todo-spring-boot.jar /opt/spring-boot/ --region=us-east-1
+  command: aws s3 cp s3://swf-spring-boot/todo-1.0.0.war /opt/spring-boot/ --region=us-east-1
 
 - name: add user "springboot"
   user: name=springboot
@@ -25,13 +25,13 @@
   command: chsh -s /sbin/nologin springboot
 
 - name: Change ownership of jar
-  file: path=/opt/spring-boot/todo-spring-boot.jar owner=springboot group=springboot state=file
+  file: path=/opt/spring-boot/todo-1.0.0.war owner=springboot group=springboot state=file
 
 - name: Create symlink
-  file: src=/opt/spring-boot/todo-spring-boot.jar path=/etc/init.d/todo-spring-boot state=link
+  file: src=/opt/spring-boot/todo-1.0.0.war path=/etc/init.d/todo-1.0.0 state=link
 
 - name: Start spring springboot
-  service: name=todo-spring-boot state=started enabled=yes
+  service: name=todo-1.0.0 state=started enabled=yes
 
 - name: Wait for spring boot to started
   wait_for: port=8080
