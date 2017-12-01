@@ -13,7 +13,7 @@
 #   copy: content="RUN_ARGS=--spring.profiles.active=ec2" dest=/opt/spring-boot-ec2-demo/spring-boot-ec2-demo.conf
 
 - name: Copy spring boot artifact
-  command: aws s3 cp s3://swf-spring-boot/todo-spring-boot.jar /opt/spring-boot-ec2-demo/ --region=us-east-1 //TODO prefix
+  command: aws s3 cp s3://swf-spring-boot/todo-spring-boot.jar /opt/spring-boot/ --region=us-east-1
 
 - name: add user "springboot"
   user: name=springboot
