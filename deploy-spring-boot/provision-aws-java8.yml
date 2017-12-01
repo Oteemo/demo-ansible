@@ -1,0 +1,36 @@
+---
+# Creates ec2 instance
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    awsregion:        us-east-1
+    instancesize:     t2.micro
+    keypair:          ec2-ol-mgt
+    amitouse:         ami-55ef662f # Amazon linux 2017.09.1
+    numberofservers:  1
+    subnettolaunchin: subnet-cd44c4a9
+    instanceprofile: S3-User
+
+  tasks:
+      - name: Launch ec2 instance
+        ec2:
+          key_name: "{{ keypair }}"
+          instance_type: "{{ instancesize }}"
+          instance_profile_name: "{{ instanceprofile }}"
+          image: "{{ amitouse }}"
+          wait: yes
+          group: webserver-sg
+          count: "{{ numberofservers }}"
+          vpc_subnet_id: "{{ subnettolaunchin }}"
+          assign_public_ip: yes
+          region: "{{ awsregion }}"
+          state: present
+          instance_tags: "{'ansible_group':'springboot', 'type':'{{ instancesize }}', 'group':'webserver-sg','Name':'springboot_todo'}"
+        register: ec2
+
+      - name: Wait until port 22 becomes active
+        local_action: wait_for host={{ item.public_ip }} port=22 state=started
+        with_items: "{{ ec2.instances }}"

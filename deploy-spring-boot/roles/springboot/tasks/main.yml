@@ -1,0 +1,34 @@
+---
+
+- name: Install Java 1.8
+  yum: name=java-1.8.0-openjdk state=present
+
+- name: httpd
+  yum: name=httpd state=present
+
+- name: Create working directory
+  file: path=/opt/spring-boot state=directory
+
+# - name: Create Configuration for profile being used
+#   copy: content="RUN_ARGS=--spring.profiles.active=ec2" dest=/opt/spring-boot-ec2-demo/spring-boot-ec2-demo.conf
+
+- name: Copy spring boot artifact
+  command: aws s3 cp s3://swf-spring-boot/todo-spring-boot.jar /opt/spring-boot-ec2-demo/ --region=us-east-1 //TODO prefix
+
+- name: add user "springboot"
+  user: name=springboot
+
+- name: disable springboot login shell
+  command: chsh -s /sbin/nologin springboot
+
+- name: Change ownership of jar
+  file: path=/opt/spring-boot/some.jar owner=springboot group=springboot state=file
+
+- name: Create symlink
+  file: src=/opt/spring-boot/todo-spring-boot.jar path=/etc/init.d/spring-boot state=link
+
+- name: Start spring springboot
+  service: name=spring-boot state=started enabled=yes
+
+- name: Wait for spring boot to started
+  wait_for: port=8080

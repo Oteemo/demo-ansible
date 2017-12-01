@@ -1,0 +1,7 @@
+# This playbook deploys tomcat.
+
+- hosts: tag_Name_springboot_todo
+  become: yes
+
+  roles:
+    - springboot
