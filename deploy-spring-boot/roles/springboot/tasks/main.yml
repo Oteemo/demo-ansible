@@ -22,7 +22,7 @@
   command: chsh -s /sbin/nologin springboot
 
 - name: Change ownership of jar
-  file: path=/opt/spring-boot/some.jar owner=springboot group=springboot state=file
+  file: path=/opt/spring-boot/todo-spring-boot.jar owner=springboot group=springboot state=file
 
 - name: Create symlink
   file: src=/opt/spring-boot/todo-spring-boot.jar path=/etc/init.d/spring-boot state=link
