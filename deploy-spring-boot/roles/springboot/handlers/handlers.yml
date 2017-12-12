@@ -1,0 +1,2 @@
+- name: restart appBase
+  service: name=todo-1.0.0 state=restarted

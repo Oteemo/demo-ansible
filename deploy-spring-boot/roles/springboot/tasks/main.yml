@@ -1,5 +1,4 @@
 ---
-tasks:
 - name: Install Java 1.8
   yum: name=java-1.8.0-openjdk state=present
 
@@ -37,7 +36,3 @@ tasks:
 
 - name: Wait for spring boot to started
   wait_for: port=8080
-
-handlers:
-  - name: restart app
-    service: name=todo-1.0.0 state=restarted
