@@ -1,5 +1,5 @@
 ---
-
+tasks:
 - name: Install Java 1.8
   yum: name=java-1.8.0-openjdk state=present
 
@@ -17,6 +17,8 @@
 
 - name: Copy spring boot artifact
   command: aws s3 cp s3://swf-spring-boot/todo-1.0.0.war /opt/spring-boot/ --region=us-east-1
+  notify:
+    - restart app
 
 - name: add user "springboot"
   user: name=springboot
@@ -35,3 +37,7 @@
 
 - name: Wait for spring boot to started
   wait_for: port=8080
+
+handlers:
+  - name: restart app
+    service: name=todo-1.0.0 state=restarted
