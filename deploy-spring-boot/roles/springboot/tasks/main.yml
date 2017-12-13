@@ -2,7 +2,7 @@
 - name: Include vault password
   include_vars:
    file: group_vars/all/vault
-   
+
 - name: Install Java 1.8
   yum: name=java-1.8.0-openjdk state=present
 
@@ -28,8 +28,8 @@
     group_id: com.swf
     artifact_id: todo-spring-boot
     repository_url: 'https://nexus.oteemo-swf.com/repository/cbp-snapshots/'
-    username: {{vault_nexus_username}}
-    password: {{vault_nexus_password}}
+    username: {{ vault_nexus_username }}
+    password: {{ vault_nexus_password }}
     dest: /opt/sping-boot/todo-1.0.0.war
 
 - name: add user "springboot"
