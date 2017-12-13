@@ -1,4 +1,8 @@
 ---
+- name: Include vault password
+  include_vars:
+   file: group_vars/all/vault
+   
 - name: Install Java 1.8
   yum: name=java-1.8.0-openjdk state=present
 
@@ -14,10 +18,19 @@
 # - name: Create Configuration for profile being used
 #   copy: content="RUN_ARGS=--spring.profiles.active=ec2" dest=/opt/spring-boot-ec2-demo/spring-boot-ec2-demo.conf
 
-- name: Copy spring boot artifact
-  command: aws s3 cp s3://swf-spring-boot/todo-1.0.0.war /opt/spring-boot/ --region=us-east-1
-  notify:
-    - restart app
+# - name: Copy spring boot artifact
+#   command: aws s3 cp s3://swf-spring-boot/todo-1.0.0.war /opt/spring-boot/ --region=us-east-1
+#   notify:
+#     - restart app
+
+- name: Pull spring boot artifact
+  maven_artifact:
+    group_id: com.swf
+    artifact_id: todo-spring-boot
+    repository_url: 'https://nexus.oteemo-swf.com/repository/cbp-snapshots/'
+    username: {{vault_nexus_username}}
+    password: {{vault_nexus_password}}
+    dest: /opt/sping-boot/todo-1.0.0.war
 
 - name: add user "springboot"
   user: name=springboot
