@@ -15,6 +15,9 @@
 - name: Create working directory
   file: path=/opt/spring-boot state=directory
 
+- name: Remove Old Artifact
+  file: path=/opt/spring-boot/todo-1.0.0.war state=absent
+
 # - name: Create Configuration for profile being used
 #   copy: content="RUN_ARGS=--spring.profiles.active=ec2" dest=/opt/spring-boot-ec2-demo/spring-boot-ec2-demo.conf
 
@@ -23,7 +26,7 @@
 #   notify:
 #     - restart app
 
-- name: Copy spring boot artifact
+- name: Install New Artifact
   get_url:
     url: https://nexus.oteemo-swf.com/repository/cbp-releases/com/swf/todo-spring-boot/1.0.0/todo-spring-boot-1.0.0.war
     dest: /opt/spring-boot/todo-1.0.0.war
