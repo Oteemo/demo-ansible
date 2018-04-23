@@ -28,7 +28,7 @@
 
 - name: Download spring boot artifact
   get_url:
-    url: https://nexus.oteemo-swf.com/repository/cbp-releases/com/swf/todo-spring-boot/1.0.0/todo-spring-boot-1.0.0.war
+    url: https://nexus.oteemo-swf.com/repository/maven-releases/com/swf/todo-spring-boot/1.0.0/todo-spring-boot-1.0.0.war
     dest: /opt/spring-boot/todo-1.0.0.war
     url_username: "{{ vault_nexus_username }}"
     url_password: "{{ vault_nexus_password }}"
