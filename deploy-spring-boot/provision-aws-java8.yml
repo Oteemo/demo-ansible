@@ -8,10 +8,10 @@
   vars:
     awsregion:        us-east-1
     instancesize:     t2.micro
-    keypair:          ec2-ol-mgt
+    keypair:          ec2-ol-mgt-amazon-linux
     amitouse:         ami-55ef662f # Amazon linux 2017.09.1
     numberofservers:  1
-    subnettolaunchin: subnet-cd44c4a9
+    subnettolaunchin: subnet-a03f52ea
     instanceprofile: S3-User
 
   tasks:
