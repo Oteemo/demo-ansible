@@ -12,14 +12,12 @@
     amitouse:         ami-55ef662f # Amazon linux 2017.09.1
     numberofservers:  1
     subnettolaunchin: subnet-a03f52ea
-    instanceprofile: S3-User
 
   tasks:
       - name: Launch ec2 instance
         ec2:
           key_name: "{{ keypair }}"
           instance_type: "{{ instancesize }}"
-          instance_profile_name: "{{ instanceprofile }}"
           image: "{{ amitouse }}"
           wait: yes
           group: webserver-sg
